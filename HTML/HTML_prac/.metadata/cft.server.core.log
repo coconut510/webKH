@@ -1,0 +1,2 @@
+목 4월 19 2018 12:02:46 오후 - CloudFoundryServer.modifyModules(...): add: { html [org.eclipse.jst.jee.server:html/jst.web]} remove: {}
+목 4월 19 2018 12:02:46 오후 - CloudFoundryServerBehaviour.publishModule(...): ADDED { html [org.eclipse.jst.jee.server:html/jst.web]}
