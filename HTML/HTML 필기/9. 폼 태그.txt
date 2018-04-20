@@ -48,6 +48,16 @@ type			: 입력창의 타입을 결정하는 속성 (text, checkbox, radio,select등)
 
 	* type 속성의 값은 아래에서 다루도록 하겠음.
 
+	 text : <input type="text"><br>
+        password : <input type = "password"><br>
+        hidden : <input type="hidden"><br>
+        button : <input type="button"><br>
+        checkbox : <input type="checkbox"><br>
+        file : <input type="file"><br>
+        image : <input type="image" src="img/ChWSM-ZU4AEk0Xr.jpg" height="200"><br>
+        radio : <input type="radio"><br>
+        submit : <input type="submit"><br>
+        reset : <input type="reset"><br>
 
 ## 그외 속성들 ##
 
@@ -64,8 +74,8 @@ size		: 화면에서 표시하는 글자수
 
 등등.. 더 많아요.. 알아서.. 찾아.. 보.. 세.. 요.. 너무 .. 많아요..
 
-
-
+ex)
+       
 
 
 
