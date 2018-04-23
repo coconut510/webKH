@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[text 테스트]</title>
+</head>
+    <body>
+        <form action="#" method="get">
+            ex1)
+            ID : <input type="text" name="ID" size="20" maxlength="20"><br>
+
+            ex2)
+            ID : <input type="text" name="ID" placeholder="아이디를 입력하세요"><br>
+
+            ex3)
+            ID : <input type="text" name="ID" value="admin" readonly><br>
+           <input type="submit" value="전송">     <br>
+           
+           <button onclick="myfunc();">전송1</button> *
+           
+           <fieldset>
+               <legend>좋아하는 음식을 체크하세요</legend>
+              피자 <input type="checkbox" name="pizza">
+              짜장면 <input type="checkbox" name="zzazangmyun">
+              치킨 <input type="checkbox" name="chicken">
+              기타 <input type="checkbox" name="etc">
+           </fieldset>
+           <fieldset>
+               <legend>취미를 1가지만 선택하세요</legend>
+               운동<input type="radio" name="hobby" value="sport" checked="true">
+               노래<input type="radio" name="hobby" value="sing">
+               숨쉬기<input type="radio" name="hobby" value="respirtion">
+               기타<input type="radio" name="hobby" value="etc">
+           </fieldset>
+           <fieldset>
+               <legend> 좋아하는 색생을 선택하세요.</legend>
+               <input type="color" name="좋아하는 컬러">
+           </fieldset>
+           
+           <fieldset>
+               <legend>date 예시</legend>
+               <input type="date" min="1980-01-01" max ="2020-01-01">
+           </fieldset>
+           
+           <fieldset>
+           <legend>datetime-local예시</legend>
+           <input type="datetime-local" min="1980-0101T00:00" max="2020-12-31T23:59" name="datetime">
+           </fieldset>
+           <fieldset>
+           <legend>month 예시</legend>
+           <input type="month" min="1960-01" max="2030-12" name="month" value="2017-04">
+           </fieldset>
+           
+           <fieldset>
+               <legend>week 예시</legend>
+               <input type="week" value="week">
+           </fieldset>
+           
+           <fieldset>
+            <legend>time 예시</legend>
+            <input type="time" name="time" value="12:00">               
+           </fieldset>
+           
+           <fieldset>
+               <legend>number 예시</legend>
+               <input type="number" name="넘버" min=1 max=100 step=2 value=1>
+           </fieldset>
+           
+           <fieldset>
+               <legend>range 예시</legend>
+               <input type="range" name="넘버" min=1 max=100 step=2 value=1>
+           </fieldset>
+           
+           <fieldset>
+               <legend>search 예시</legend>
+               <input type="search" name="search">
+           </fieldset>
+           
+           <fieldset>
+               <legend>url예시</legend>
+               <input type="url" name="url">
+           </fieldset>
+           
+           <fieldset>
+           <legend>email 예시</legend>
+           <input type="email" name="email">
+           </fieldset>
+           <fieldset>
+               <legend>tel 예시</legend>
+               <input type="tel" name="tel">
+           </fieldset>
+           
+           <fieldset>
+                <legend>당신의 직업을 선택하세요(select 예시)</legend>
+                <select size=1 name="select">
+                    <option value="doctor"> 의사</option>
+                    <option value="teacher" selected> 교사</option>
+                    <option value="soldier"> 군인</option>
+                    <option value="northpig"> 북한 뚱뚱이</option>
+                </select>
+           </fieldset>
+           
+           <fieldset>
+               <legend>차종을 선택하세요</legend>
+               <select>
+                    <optgroup label="르노삼성">
+                        <option value="SM3"> SM3</option>
+                        <option value="SM5"> SM5</option>	
+                    </optgroup>
+                    <optgroup label="쉐보레">
+                        <option value="cruze"> 크루즈</option>
+                        <option value="malibu"> 말리부</option>	
+                    </optgroup>
+                </select>
+          </fieldset>
+          
+          <fieldset>
+                <legend> datalist 예시</legend>
+                <input type="text" id="id" list="browsers" name="browsers">
+                <datalist id="browsers">
+                    <option value="Internet Explorer" selected> </option>
+                    <option value="FireFox"></option>
+                    <option value="Chrome"></option>
+                    <option value="Opera"></option>
+                </datalist>
+          </fieldset>
+           
+           <input type="file" name="파일선택">
+           <input type="submit" value="전송">
+           <input type="reset"  value="취소">
+           
+        </form>
+        <script>
+            function myfunc()
+            {
+                alert("버튼 클릭하였습니다.");
+            }
+        </script>
+    </body>
+</html>

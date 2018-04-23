@@ -75,6 +75,269 @@ size		: 화면에서 표시하는 글자수
 등등.. 더 많아요.. 알아서.. 찾아.. 보.. 세.. 요.. 너무 .. 많아요..
 
 ex)
+
+
+@ type 별 따른 속성 값
+## hidden ##
+-> 사용자에게 보이지는 않지만 값을 가지고 있는 속성
+
+추가 속성
+name : hidden type 속성 데이터 구분자 또는 명칭
+value : hidden 에 들어갈 값 설정
+
+<input type=hidden name="명칭" value="값">
+
+
+## text 속성 ##
+-> 사용자에게 값을 입력받기 위한 속성
+
+추가 속성
+name : text type 속성 데이터 구분자 또는 명칭
+size : 사용자 화면에 보여줄 문자 입력하는 창의 길이
+value : text 에 들어갈 값, 설정하지 않으면 빈 값이 됨
+mexlength : 총 입력 받을 개수
+
+<input type="text" name="명칭" value="값" size="숫자" maxlength="숫자">
+
+* 추가적인 속성으로 readonly 사용하면 읽기 전용이 되므로 사용자는 입력 or 수정할 수 없음
+* 추가적인 속성으로 palceholder ="값"을 사용하면 입력 전 표시글로 사용할수 있음
+
+ex1)
+ID : <input type="text" name="ID" size="20" maxlength="20"><br>
+
+ex2)
+iD : <input type="text" name="ID" placeholder="아이디를 입력하세요"><br>
+
+ex3)
+ID : <input type="text" name="ID" value="admin" readonly><br>
+
+## password 속성 ##
+-> text 타입 처럼 사용자가 입력할 수 있는 필드
+-> 입력시 데이터를 알 수 없게 ● 로 표시함
+
+<input type="password" name="명칭">
+
+
+## button 속성 ##
+-> 버튼을 생성 하는 타입
+-> 별도의 기능이 따로 부여되어 있지는 않음
+
+추가 속성 값
+id	: 구분자 (css 나 JavaScript에서 구분하기 위한 구분자)
+value	: buttonm 에 표시될 값(ex. 입력, 전송 등등)
+event	: 자바 스크립트를 불러올 행동(ex.onclick)
+
+<input type="button" id="audcld" value="값" onclick="스크립트 함수">
+ 
+*자바 스크립트를 배우지 않았으므로 지금 구현은 힘듬!
+
+
+## checkbox / radio ##
+-> 사용자가 체크할 수 있는 체크 박스와 라디오 버튼을 
+
+name : 구분자 또는 명칭
+value : 전송시 전달할 값
+checked : 처음에 선택 될 값 지정(default : 지정 안됨)
+
+작성법
+<input type="checkbox" name="명칭" value="값">
+<input type="radio" name="명칭" value="값">
+
+
+## file ##
+-> 파일을 전송할 때 사용하는 type
+-> 선택한 파일의 이름을 가져옴
+
+* 실제 파일의 내용을 전송하려면 별도로 구현 해야 함
+
+<input type="file" name="명칭">
+
+## html5 에 추가된 type ##
+
+추가된 type 속성
+
+color		: 색상 선택 양식
+date		: 년, 월, 일 선택 양식을 생성
+datetime_local 	: 년, 월, 일 시간 선택 양식을 생성
+time		: 시간을 선택하는 양식을 생성
+month		: 년, 월을 선택하는 양식을 생성
+week		: 주를 성택하는 양식을 생성
+number		: 숫자를 입력하는 창 생성
+range		: 슬라이드 막대로 숫자 입력 생성
+search		: 검색어를 입력하는 창 생성( 입력구에 X 버튼이 생김)
+tel		: 전화번호를 입력하는 창 생성
+email		: @ 를 포함하여 작성해야 하는 창생성(이메일 형식)
+url		: 주소값을 입력하는 창 생성( http:// 가 있는지를 확인함)
+
+
+## color ##
+
+name : 이름 구분자
+
+사용법
+<input type="color" name="명칭">
+
+## date, datetime-local, month, week
+(기존 datetime이 있었으나 사용을 권장하지 않고 중단 됨 : datetime은 사용자가 직접 날짜 입력)
+
+min	: 최소 표시 날짜 지정(예 1988-01-01)
+max	: 최대 표시 날짜 지정(ex. 2020-12-31)
+value	: 초기 표현 값
+
+<input type="타입명" id="명칭" min="0000-00-00" max="0000-00-00" step="숫자" value="날짜">
+
+* date : yyyy-mm-dd
+* datetime-local : yyyy-mm-ddT00:00(24)
+* month : yyyy-mm
+
+
+## time ##
+-> 시간을 지정할 수 있는 타입
+
+value : 초기 시간 지정
+
+<input type="time" name="명칭" value="00:00">
+
+
+## number / range ##
+
+속성
+min : 최소 표시 숫자 지정
+max : 최대 표시 숫자 지정
+step : 숫자 간격 지정
+value : 초기 표현 값
+
+<input type=number/range name="명칭" min="숫자" max="숫자" step="숫자" value="숫자">
+
+* range는 크롬에서는 제대로 표시되지 않음 (숫자값이 안나옴)
+
+
+## search / url / email / tel ##
+
+작성법
+
+<input type="search/url/email/tel" name="명칭" value="초기값">
+
+* search는 지원하는 웹 브라우저가 많지 않음
+( 글을 지우는 X  버튼이 지원하는 text 필드인데 모바일을 위한 것이기 때문!)
+
+
+* tel 또한 safari 8 이상 브라우저에서 지원( 다른곳은 지원하지 않음)
+
+
+
+## 여러값 표현 태그 ##
+
+
+## select 태그 ##
+-> select list를 만드는 태그
+-> option을 이용하여 select 안에 목록을 표시함
+
+속성
+size 		: 화면에 표시될 항목 개수 지정
+multiple	: 여러 항목을 선택 지정(ctrl 누른 상태에서 선택)
+
+
+## option 태그 ##
+-> select 안에 표시될 목록을 만드는 태그
+
+작성법
+<select size="숫자" name="명칭">
+	<option value="값"> 표시내용1</option>
+	<option value="값"> 표시내용2</option>
+	<option value="값"selected> 표시내용3</option>
+</select>
+
+
+* option 에 selected 값을 주게 되면 선택된 상태로 나오게 됨
+
+## optgroup 태그 ##
+-> 옵션을 그룹으로 묶어서 출력하는 태그
+
+작성법
+<select>
+	<optgroup label="목록이름1">
+		<option value="값1"> 표시내용1</option>
+		<option value="값2"> 표시내용2</option>	
+	</optgroup>
+	<optgroup label="목록이름2">
+		<option value="값3"> 표시내용3</option>
+		<option value="값4"> 표시내용4</option>	
+	</optgroup>
+</select>
+
+
+## datalist 태그 ##
+-> select 와 비슷하게 option 을 이용하여 항목을 넘겨주는 태그
+
+작성법
+<input type="text" id="" list="datalistid값">
+	<datalist id="">
+		<option value="값" label="명칭"></option>
+		<option value="값" label="명칭"></option>
+	</datalist>
+
+
+## textarea 태그 ##
+-> 긴 장문의 글을 작성할 때 사용하는 텍스트 영역
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        
 
 

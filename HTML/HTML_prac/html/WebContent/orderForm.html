@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[제목입력]</title>
+</head>
+    <body>
+    <form action="#" method="get">
+         고객명 : <input type="text" name="client_name"><br>
+         전화번호 : <input type="text" name="phone"><br>
+         E-mail : <input type="text" name="email"><br>
+         
+         <fieldset>
+             <legend>피자 사이즈</legend>
+             <p><label><input type="radio" name="pizzasize" value="Small" checked=selected>Small</label></p>
+             <p><label><input type="radio" name="pizzasize" value="Medium">Medium</label></p>
+             <p><label><input type="radio" name="pizzasize" value="Large" >Large</label></p>
+         </fieldset>
+        
+        <fieldset>
+             <legend>토핑선택</legend>
+             <p><label><input type="checkbox" name="pizzasize" value="bacon">베이컨</label></p>
+             <p><label><input type="checkbox" name="pizzasize" value="cheese">치즈</label></p>
+             <p><label><input type="checkbox" name="pizzasize" value="onion">양파</label></p>
+             <p><label><input type="checkbox" name="pizzasize" value="mushroom">버섯</label></p>
+         </fieldset> 
+        희망배송시간 : <input type="time"><br>
+        배송시요청사항<textarea name="orderInfo" cols="30"></textarea><br>
+          
+          <input type="submit" value="주문하기">
+    </form>
+    </body>
+</html>
