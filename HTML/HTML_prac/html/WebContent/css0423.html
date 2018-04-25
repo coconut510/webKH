@@ -3,18 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>[제목입력]</title>
-<style>
-    p[id~="test"]{color: red;}
-    p[class|="class"]{background-color : yellow;}
-</style>
+    <style>
+        p{color:red;}
+        .pp{color:blue;}
+        #p1{color:pink;}
+        p{color:red !important;}
+    </style>
 </head>
     <body>
-    <p id="test 1" class="class-c1"> 내용1 </p>
-    <p id="test 2" class="c1"> 내용2 </p>
-    <p id="test 3" class="c1"> 내용3 </p>
-    <p id="test 4" class="c2"> 내용4 </p>
-    <p id="test 5" class="c2"> 내용5 </p>
-    <p id="test 6" class="class-c2"> 내용6 </p>
-    <p id="etc"> 기타내용 </p>
+       <p id="p1" class="pp" style="color:green">내용1</p>
+
     </body>
 </html>
