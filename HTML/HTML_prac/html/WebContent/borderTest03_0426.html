@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[제목입력]</title>
+    <style> 
+        #wrap
+        {
+            border:3px solid red;
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        .test
+        {
+            position:absolute;
+            width:100px;
+            height: 100px;
+        }
+        #test1{
+            background-color: blue;
+            z-index: 12;
+        }
+        #test2{
+            background-color: yellow;
+            z-index: 11;
+        }
+        #test3{
+            background-color: purple;
+            z-index: 10;
+        }
+    </style>
+</head>
+    <body>
+    <script>
+        var zindex=10;
+        var index=1;
+        function  myfunc()
+        {
+            var arr = document.getElementsByTagName("div");            
+            arr[index].style.zIndex = zindex;
+            zindex++;
+            index++;
+            if(index==4)
+            {
+                index=1;
+            }
+        }
+    </script>
+    
+    <div id="wrap">
+        <div id="test1" class="test">안녕</div>
+        <div id="test2" class="test">하세</div>
+        <div id="test3" class="test">요!</div>
+    </div>
+    <button onclick="myfunc();">색깔 바꾸기</button>
+
+    </body>
+</html>

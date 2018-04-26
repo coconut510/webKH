@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>레이아웃스타일2</title>
+  <style>
+      div{border: 3px ;
+      width:50px;
+      height:50px;}
+      
+      td{border:5px dashed black;
+      width:150px;
+      height:150px;}
+      
+      .border-test1{border-style:none;}
+      .border-test2{border-style:hidden; box-shadow: 5px 5px 3px 2px gray;}
+      .border-test3{border-style:dotted; }
+      .border-test4{border-style:dashed; border-color: blue yellow red green;}
+      .border-test5{border-style:double; border-color: blue yellow blue red;}
+      .border-test6{border-style:groove; border-top-left-radius: 50px;}
+      .border-test7{border-style:groove; border-bottom-right-radius: 50px;}
+      .border-test8{border-style:outset; border-bottom-right-radius: 50px; border-top-left-radius: 50px;}
+      .border-test9{border-style:ridge; box-shadow: 5px 5px 3px 2px gray;}
+      .border-test10{border-style:solid; box-shadow: 5px 5px 3px 2px gray;}
+      #left-top{border-style:solid dashed dashed solid; border-top-left-radius: 50px; border-color: blue;
+                 width: 150px;}
+      #left-top+td{border-style:dashed; border-color: black;width: 150px;}
+      #left-top+td+td{border-style:dashed; border-color: green;width: 150px; border-top-right-radius: 50px;}
+      
+      #table1 tr:nth-child(2)>td:nth-child(2){border-style:dotted; border-color: pink;}
+      
+      #left-bottom{border-style:dashed dashed solid solid; border-bottom-left-radius: 50px; border-color: yellow; width: 150px;}
+      #right-bottom{border-style:dashed solid solid dashed; border-bottom-right-radius: 50px; border-color: red; width: 150px;}
+
+  </style>
+ </head>
+ <body>
+	<h1>테두리 스타일</h1>
+	<h3>border-style:none</h3>
+    <div class="border-test1"></div>
+	<h3>border-style:hidden & box-shadow:5px 5px 3px 2px gray</h3>
+    <div class="border-test2"></div>
+	<h3>border-style:dotted</h3>
+    <div class="border-test3"></div>
+	<h3>border-style:dashed</h3>
+    <div class="border-test4"></div>
+	<h3>border-style:double</h3>
+    <div class="border-test5"></div>
+	<h3>border-style:groove & border-top-left-radius:50px</h3>
+    <div class="border-test6"></div>
+	<h3>border-style:inset & border-bottom-right-radius:50px</h3>
+    <div class="border-test7"></div>
+	<h3>border-style:outset & border-bottom-right-radius:50px & border-bottom-right-radius:50px</h3>
+    <div class="border-test8"></div>
+	<h3>border-style:ridge & box-shadow:5px 5px 3px 2px gray</h3>
+    <div class="border-test9"></div>
+	<h3>border-style:solid & box-shadow:5px 5px 3px 2px gray</h3>
+    <div class="border-test10"></div>
+
+    <br><br>
+     다음과 같이 테이블을 꾸며 보세요 
+	
+	<table height="500px" width="500px"  id="table1" >
+		<tr>
+			<td id="left-top"></td><td></td><td id="right-top"></td>
+		</tr>
+		<tr>
+			<td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td id="left-bottom"></td><td></td><td id="right-bottom"></td>
+		</tr>
+	</table>
+    
+    
+    
+
+ </body>
+</html>
