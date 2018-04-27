@@ -33,6 +33,56 @@ animation-timing-function
 ## transition-delay ##
 -> delay 속성을 주게 되면 애니메이션이 시작될때까지의 시간을 설정할 수 있음.
 
+## 역전환 ##
+-> 커서가 올라갈때 글씨가 커지는 전환 기법을 적용하게 되면 글씨가 커지게 됨
+-> 이때, 글씨가 커진후 커서가 빠져나가게 되면 글씨가 빠른 속도로 줄어듦
+-> 역전환 기법을 이용하여 글씨의 크기가 원래대로 복귀할때 속도를 줄수 있음
+	(부드러운 효과를 줄때 사용함)
+
+
+@ 키 프레임 사용
+-> 키 프레임을 사용하면 애니메이션의 중간 설정을 줄 수 있음
+
+
+ex)
+<style>
+        div{
+            width:300px;
+            height:100px;
+            margin:10px;
+            background-color: yellow;
+            border:1px solid black;
+            text-align:center;
+            line-height:100px;
+        }
+        div:hover{
+            animation-duration: 5s;
+            animation-name: ani;
+        }
+        
+        @keyframes ani
+        {
+            from{
+                font-size : 20px;
+            }
+            50%
+            {
+                background-color:red;
+            }
+            to{
+                font-size : 40px;
+            }
+        }
+    </style>
+</head>
+    <body>
+        <h1>당신이 가장 사랑하는 사람은?</h1>
+        <div>노민수</div>
+        <div>민수</div>
+        <div>노민수 강사</div>
+        <p>움직임</p>
+    </body>
+</html>
 
 
 

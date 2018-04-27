@@ -9,18 +9,28 @@
             height:100px;
             margin:10px;
             background-color: yellow;
-            font-size:20px;
             border:1px solid black;
             text-align:center;
             line-height:100px;
-               transition-duration: 2s;
         }
         div:hover{
-            font-size:50px;
-            transition-duration: 2s;
-            transition-delay: 1s;
+            animation-duration: 5s;
+            animation-name: ani;
         }
         
+        @keyframes ani
+        {
+            from{
+                font-size : 20px;
+            }
+            50%
+            {
+                background-color:red;
+            }
+            to{
+                font-size : 40px;
+            }
+        }
     </style>
 </head>
     <body>
@@ -28,5 +38,6 @@
         <div>노민수</div>
         <div>민수</div>
         <div>노민수 강사</div>
+        <p>움직임</p>
     </body>
 </html>
