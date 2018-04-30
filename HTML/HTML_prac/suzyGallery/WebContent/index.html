@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>수지 갤러리</title>
+    <style> 
+        *{
+            margin:0;
+            padding:0;
+        }
+    /* 헤더관련*/
+        #header{
+            width:100%;
+            height:200px;
+/*            background-color: aquamarine;*/
+            box-sizing: border-box;
+        }
+        #headerLine{
+            background-color: aqua;
+            width:100%;
+            height:3px;
+        }
+        
+        #title{
+             font-family: 'Do Hyeon', sans-serif;
+            text-align-last: center;
+        }
+        /* 수지갤러리 타이틀 */
+        #title>p{
+            font-size: 80px;
+            overflow:hidden;
+            padding-top:30px;
+            width:100%;
+        }
+       
+    /* 컨텐츠관련*/
+        #entireBG{
+            width: 100%;
+            height:600px;
+            box-sizing: border-box;
+        }
+    /*  상단부 */
+        #contentTop{
+            width:85%;
+            height:600px;
+            background-color: black;
+            display:none;
+            margin-bottom: 20px;
+        }
+        #closeBtn{
+            width:30px;
+            height:30px;
+            float:right;
+        }     
+        .gallery{
+            height:500px;
+            display: none;
+        }
+        
+        #content{
+            width:85%;
+            height:100%;
+            background-color: white;
+            box-sizing:content-box;
+        }
+        .imageCover{
+            width:31.8%;
+            height:18%;
+            background-color: black;
+            z-index: 999;
+            border-radius: 1em;
+            opacity: 1;
+            position:absolute;
+        }
+        .imgCommon{
+            border-radius: 1em;
+            display:inline-block;
+            padding: 0;
+            border:0;
+            opacity: 1;
+        }
+        .suzy_Group{
+            position:relative;
+        }
+        .context{
+            position:absolute;
+            text-align-last: center;
+            left:30%;
+            top:70%;
+            font-size: 150%;
+            font-family: 'Do Hyeon', sans-serif;
+            text-shadow: 2px 2px 2px white;
+        }
+        #firstLine{
+            float:left;
+            width:40%;
+            height:400px;
+        }
+        #suzy_model{
+            width:95%;
+        }
+        .imgCommon:hover{
+            opacity: 0.4;
+            transform:scale(1.05);
+            transition-duration: 1s;
+        }
+        .imgCommon:active{
+            animation-name: showPhotos;
+            animation-duration: 1s;
+        }
+
+        #suzy_drama{
+            width:95%
+        }
+        
+        #suzy_movie{
+            width:95%;
+        }
+    
+        #suzy_festival{width:95%;}
+        #secondLine{
+            float:left;
+            width:31%;
+            margin:0.3%;
+        }
+        #suzy_missA{width:95%;}
+        #suzy_life{width:95%;}
+        
+        #thirdLine{
+            float:left;
+            width:27.8%;
+            margin:0.3%;
+        }
+        #suzy_cf{width:95%;}
+        #suzy_viriety{width:95%;}
+        #suzy_beforePublic{width:95%;}
+        
+
+        /* 푸터관련*/
+        #footer{
+            width:100%;
+            height:100px;
+            float:left;
+            background-color: palevioletred;
+            line-height: 3.4;
+        }
+        #instaTag{
+            text-decoration-line: none;
+            color:white;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        #faceBook{
+            text-decoration-line: none;
+            color:white;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+    </style>
+     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+     <script>
+         var type=0;
+        function suzyModel(a)
+         {
+             type =a;
+             var textA = "";
+             switch(a)
+             {
+                 case 1: textA="수지 화보"; break;
+                 case 2: textA="수지 드라마"; break;
+                 case 3: textA="수지 CF"; break;
+                 case 4: textA="수지 MissA"; break;
+                 case 5: textA="수지 일상"; break;
+                 case 6: textA="수지 영화"; break;
+                 case 7: textA="수지 행사"; break;
+                 case 8: textA="수지 예능"; break;
+             }
+             document.getElementById("contentTop").style.display = "block";
+             document.getElementById("galleyTitle").innerHTML=textA;
+         }
+         function closeGallery()
+         {
+             document.getElementById("contentTop").style.display = "none";
+         }
+         var b=1;
+         function choiceImage(a,val)
+         {
+             var dir="";
+             switch(a)
+             {
+                 case 1: dir="model"; break;
+                 case 2: dir="drama"; break;
+                 case 3: dir="cf"; break;
+                 case 4: dir="missA"; break;
+                 case 5: dir="life"; break;
+                 case 6: dir="movie"; break;
+                 case 7: dir="festival"; break;
+                 case 8: dir="viriaty"; break;
+             }
+             
+            
+             switch(b)
+             {
+                 case 1:    document.getElementById("gallery01").src = ("img/"+dir+"/sz01.jpg").src; break;
+                 case 2:    document.getElementById("gallery02").src = "img/"+dir+"/sz02.jpg"; break;
+                 case 3:    document.getElementById("gallery03").src = "img/"+dir+"/sz03.jpg"; break;
+                 case 4:    document.getElementById("gallery04").src = "img/"+dir+"/sz04.jpg"; break;
+                 case 5:    document.getElementById("gallery05").src = "img/"+dir+"/sz05.jpg"; break;
+             }
+               document.getElementById("galleyTitle").innerHTML=  "/img/"+dir+"/sz01.jpg";
+               document.getElementById("gallery02").src= "img/model/sz03.jpg";
+             b+=val;
+             if(b>5 || b<1)
+             {
+                 b=1;
+             }
+         }
+    </script>
+</head>
+       
+    <body>
+        <div id="header">
+            <div id="title">
+                <p>수지 갤러리</p>
+                <div id="headerLine">
+                </div>
+            </div>
+        </div>
+           <center>
+           <div id="entireBG">
+               <div id="contentTop">
+                   <div id="closeBtn"> 
+                       <img  src="img/closeBtn.png"  onclick="closeGallery();" style="width:100%">
+                   </div>
+                   <h2 id="galleyTitle" style="color:white; font-family: 'Do Hyeon', sans-serif;">수지</h2>
+                   
+                   <img id="rightPoint" onclick="choiceImage(1,1);"
+                   src="img/point.png" style="color:white; position:absolute; right:10%; top:50%; width:40px;">
+                   <img id="leftPoint" onclick="choiceImage(1,-1);" src="img/point.png" style="color:white; position:absolute; left:10%; top:50%; transform: rotate(180deg); width:40px;">
+                   
+                   <div id="modelGallery">
+                        <div id="modelGalleryMain">
+                            <img id="gallery01" class="gallery" style="display:block;" src="img/model/sz01.jpg">
+                            <img id="gallery02" class="gallery" src="img/model/sz02.jpg">
+                            <img id="gallery03" class="gallery" src="img/model/sz03.jpg">
+                            <img id="gallery04" class="gallery" src="img/model/sz04.jpg">
+                            <img id="gallery05" class="gallery" src="img/model/sz05.jpg">
+                        </div>
+                    </div>
+               </div>
+                <div id="content">
+                   <div id="firstLine">                       
+                        <div class="suzy_Group">    
+                            <p class="context">#수지#화보</p>
+                            <img id="suzy_model" class="imgCommon" onclick="suzyModel(1);" src="img/model/suzy_model_title.jpg"> 
+                        </div>
+                       
+                        <div class="suzy_Group">
+                           <p class="context">#수지#드라마</p>
+                           <img id="suzy_drama" class="imgCommon" onclick="suzyModel(2);" src="img/drama/suzy_drama_title.jpg">
+                        </div>
+                        
+                        <div class="suzy_Group">
+                           <p class="context">#수지#CF</p>
+                           <img id="suzy_cf" class="imgCommon" onclick="suzyModel(3);"
+                            src="img/cf/suzy_ad_title.jpg">
+                       </div>         
+                   </div>
+                   <div id="secondLine">
+                        <div class="suzy_Group">
+                           <p class="context">#수지#MissA</p>
+                           <img id="suzy_missA" class="imgCommon" onclick="suzyModel(4);" src="img/missA/suzy_missA_title.jpg">
+                        </div>
+                        <div class="suzy_Group">
+                           <p class="context" style="color:aquamarine;">#수지#일상</p>
+                           <img id="suzy_life" class="imgCommon" onclick="suzyModel(5);" src="img/life/suzy_lift_title.jpg">
+                        </div>
+                   </div>
+                   <div id="thirdLine">
+                        <div class="suzy_Group">
+                           <p class="context" style="color:lightgreen;">#수지#영화</p>
+                           <img id="suzy_movie" class="imgCommon" onclick="suzyModel(6);" src="img/movie/suzy_movie_title.jpg">
+                        </div>
+                        <div class="suzy_Group">
+                           <p class="context" style="color:aqua;">#수지#행사</p>
+                           <img id="suzy_festival" class="imgCommon" onclick="suzyModel(7);" src="img/festival/suzy_festival_title.jpg">
+                        </div>
+
+                       <div class="suzy_Group">
+                           <p class="context" style="color:deepskyblue;">#수지#예능</p>
+                           <img id="suzy_viriety" class="imgCommon" onclick="suzyModel(8);" src="img/viriaty/suzy_viriety_title.jpg">
+                       </div>
+                   </div>
+                  
+               </div>
+                <div id="footer">
+                    <h2><a id="instaTag" href="https://www.instagram.com/skuukzky/">수지 인스타 방문</a>  <a id="faceBook" href="https://www.facebook.com/JYPESuzy">/ 수지 페이스북 방문</a></h2>
+                </div>
+            </div>
+            
+       </center>
+        
+    </body>
+</html>

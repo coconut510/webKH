@@ -4,40 +4,97 @@
 <meta charset="UTF-8">
 <title>[제목입력]</title>
     <style>
-        div{
-            width:300px;
-            height:100px;
-            margin:10px;
-            background-color: yellow;
-            border:1px solid black;
-            text-align:center;
-            line-height:100px;
+        #div_navi{
+            width:600px;
+            height: 50px;
+/*            border:1px solid black;*/
+            box-sizing: border-box;
         }
-        div:hover{
-            animation-duration: 5s;
-            animation-name: ani;
+        .navi{
+            margin:0px;
+            padding: 0px;
+            height:100%;
+            width: 100%;
+            box-sizing: border-box;
         }
-        
-        @keyframes ani
-        {
-            from{
-                font-size : 20px;
-            }
-            50%
-            {
-                background-color:red;
-            }
-            to{
-                font-size : 40px;
-            }
+        .navi>li{
+            padding:0;
+            margin:0;
+            float:left;
+            height:100%;
+            width:20%;
+            list-style-type: none;   
+            text-align-last: center;
+            line-height: 42px;
+            background: linear-gradient(to bottom,#c9c9c9,#848484);
+            box-shadow: 1px 5px 4px 0.1px;
+          
+        }
+        .navi>li>a{
+            display: block;
+            text-decoration: none;
+            color:#232323;
+            text-shadow: 1px 1px 1px #cccccc;
+            height: 100%;
+            width: 100%;
+        }
+        .navi>li:first-child{
+            border-radius:10% 0 0 10%;
+        }
+        .navi>li:last-child{
+            border-radius:0 10% 10% 0;
+        }
+
+        .navi>li>a:hover{
+            background-color:#333333;
+             
+        }
+        .navi>li>ul{
+            opacity: 0;
+            padding:0;
+        }
+        .navi>li:hover ul{
+            opacity: 100;
+              transition-duration: 0.5s;
+        }
+        .navi>li>ul>li{
+            list-style: none;
+            background-color: #D8AFAF;
+        }
+        .navi>li>ul>li>a{
+            display: block;
+            height:100%;
+            width:100%;
+            color:#232323;
+            text-decoration: none;
+        }
+        .navi>li>ul>li:last-child{
+           border-bottom-left-radius: .5em;
+           border-bottom-right-radius:  .5em;
+        }
+        .navi>li>ul>li>a:hover{
+            background-color: black;
+            color:white;
+         
         }
     </style>
 </head>
     <body>
-        <h1>당신이 가장 사랑하는 사람은?</h1>
-        <div>노민수</div>
-        <div>민수</div>
-        <div>노민수 강사</div>
-        <p>움직임</p>
+          <h2>그라데이션을 이용한 메뉴 만들기</h2>
+          <div id="div_navi">
+              <ul class="navi">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">HTML5</a>
+                      <ul>
+                          <li><a href="https://www.w3schools.com/">W3C</a></li>
+                          <li><a href="https://www.tutorialspoint.com/index.htm">Tutorial</a></li>
+                          <li><a href="https://www.javatpoint.com/">JavaPoint</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="#">CSS3</a></li>
+                  <li><a href="#">JavaScript</a></li>
+                  <li><a href="#">JQuery</a></li>
+              </ul>
+          </div>
     </body>
 </html>
