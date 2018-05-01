@@ -177,7 +177,9 @@
      <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
      <script>
          var type=0;
+         
          var modelSrc = ["sz01.jpg", "sz02.jpg", "sz03.jpg","sz04.jpg","sz05.jpg","sz06.jpg","sz07.jpg"];
+        
          var dramaSrc = ["sz01.gif", "sz02.gif", "sz03.gif","sz04.gif","sz05.gif","sz06.gif","sz07.gif"];
          var cfSrc = ["sz01.gif", "sz02.gif", "sz03.gif","sz04.gif","sz05.gif","sz06.gif","sz07.gif"];
          var missASrc = ["sz01.gif", "sz02.gif", "sz03.gif","sz04.gif","sz05.gif","sz06.gif","sz07.gif"];
@@ -185,8 +187,22 @@
          var movieSrc = ["sz01.gif", "sz02.gif", "sz03.gif","sz04.gif","sz05.gif","sz06.gif","sz07.gif"];
          var festivalSrc =  ["sz01.gif", "sz02.gif", "sz03.gif","sz04.gif","sz05.gif","sz06.gif","sz07.gif"];
          var virietySrc = ["sz01.gif", "sz02.gif", "sz03.gif","sz04.gif","sz05.gif","sz06.gif","sz07.gif"];
+         
+         
+        /*0: 모델 화보 , 1: 드라마 , 2: CF , 3:노래 4: 일상, 5: 영화, 6: 행사, 7: 예능*/
+         var videoSrc=[
+             "https://www.youtube.com/embed/L8FkJaL_ZEw?autoplay=1&loop=20&rel=0",
+              "https://www.youtube.com/embed/PYwbMfH5GYs?&autoplay=1&loop=20&rel=0",
+             "https://www.youtube.com/embed/5dnEnOesxxk?&autoplay=1&loop=20&rel=0",
+             "https://www.youtube.com/embed/WfYgbFBFe1E?autoplay=1&loop=20&rel=0",
+             "https://www.youtube.com/embed/2iNybOwhei8?autoplay=1&loop=20&rel=0",
+             "https://www.youtube.com/embed/qj3v-FXhVmY?autoplay=1&loop=20&rel=0",
+             "https://www.youtube.com/embed/R1qAx5_l0Go?autoplay=1&loop=20&rel=0",
+             "https://www.youtube.com/embed/3CHD9B8GSo4?autoplay=1&loop=20&rel=0"
+        ];
         function suzyModel(a)
          {
+             window.scrollTo(0, -10000);
              type =a;
              var textA = "";
              switch(a)
@@ -204,11 +220,12 @@
              document.getElementById("galleyTitle").innerHTML=textA;
              b =0;
              choiceImage(1);
-             window.scrollTo(500, 0);
+          
          }
          function closeGallery()
          {
              document.getElementById("contentTop").style.display = "none";
+//             document.getElementById("suzyVideo").src = videoSrc[3]; 
          }
          var b=0;
          function choiceImage(val)
@@ -249,13 +266,12 @@
                  b=0;
              }
          }
-         function nonAllImage(a)
-         {
-            for(var i = 1; i<=5;i++)
-            {
-                if(i!=a)document.getElementById("gallery0"+i).style.display="none";
-                else document.getElementById("gallery0"+i).style.display="block";
-            }
+         
+         function changeVedio()
+         {             
+             document.getElementById("suzyVideo").src = videoSrc[type-1]; 
+             closeGallery();
+             window.scrollTo(0, 5000);
          }
     </script>
 </head>
@@ -282,7 +298,8 @@
                    
                    <div id="modelGallery" >
                         <div id="modelGalleryMain" >
-                            <img id="gallery01" class="gallery" style="display:block;" src="img/model/sz01.jpg">
+<!--                             <iframe id="vedio" src="" frameborder="0"></iframe>-->
+                            <img id="gallery01" onclick="changeVedio();" class="gallery" style="display:block;" src="img/model/sz01.jpg">
                         </div>
                     </div>
                </div>
@@ -290,6 +307,7 @@
                    <div id="firstLine">                       
                         <div class="suzy_Group">    
                             <p class="context">#수지#화보</p>
+                          
                             <img id="suzy_model" class="imgCommon" onclick="suzyModel(1);" src="img/model/suzy_model_title.jpg"> 
                         </div>
                        
@@ -333,15 +351,6 @@
                </div>
                <div id="contentVideo">
                    <iframe id="suzyVideo" width="854" height="100%" src="https://www.youtube.com/embed/WfYgbFBFe1E?version=2&autoplay=1&loop=20&rel=0" frameborder="0" allowfullscreen></iframe>
-                   <ul>
-                       <li>[수지&백현] Dream M/V</li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                   </ul>
                </div>
                 <div id="footer">
                     <h2><a id="instaTag" href="https://www.instagram.com/skuukzky/">수지 인스타 방문</a>  <a id="faceBook" href="https://www.facebook.com/JYPESuzy">/ 수지 페이스북 방문</a></h2>
