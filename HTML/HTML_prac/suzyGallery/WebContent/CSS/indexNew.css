@@ -1,0 +1,122 @@
+    #wrapper{
+    /*  border:5px solid red;*/
+    }
+    #wrapper>*{
+    /*  border:5px solid green;*/
+    }
+    #wrapper>*>*{
+    /*  border:5px solid blue;*/
+    }
+    body{
+         font-family: 'Do Hyeon', sans-serif;
+      background-image: url(../../images/bg.jpg);
+      background-size:cover;
+    }  
+    *{
+            margin:0;
+            padding:0;
+        }
+    /* 헤더관련*/
+        #header{
+            text-align: center;
+            padding-top:2rem;
+            padding-bottom: 6rem;
+        }
+        #header h1{
+          font-size:5.8rem;
+          color:black;
+          font-weight: 200;
+          margin-bottom: 1.5rem;
+          line-height: 5.3rem;
+        }
+        #headerLine{
+            background-color: aqua;
+            width:100%;
+            height:3px;
+        }
+        
+        #title{
+            text-align-last: center;
+        }
+        /* 수지갤러리 타이틀 */
+        #title>p{
+            font-size: 80px;
+            overflow:hidden;
+            padding-top:30px;
+            width:100%;
+        }
+
+       
+    /* 컨텐츠관련*/
+        #main .entireBG{
+            display:flex;
+        }
+        #main .entireBG div{
+            flex-grow: 2;
+            margin:0.1rem;
+        }
+        
+        #main .entireBG img{
+          width:100%;
+          border-radius: 0.6rem;
+              margin:0.1rem;
+          display: block;
+        }
+    /*  상단부 */
+        #closeBtn{
+            width:30px;
+            height:30px;
+            float:right;
+        }     
+        .imgCommon:hover{
+            opacity: 0.4;
+            transform:scale(1.05);
+            transition-duration: 1s;
+        }
+        .imgCommon:active{
+            animation-name: showPhotos;
+            animation-duration: 1s;
+        }
+    
+        #contentVideo{
+            background-color: aqua;
+            width:100%;
+            height:400px;
+            float:left;
+        }
+        /* 푸터관련*/
+        #footer{
+            width:100%;
+            height:100px;
+            float:left;
+            background-color: palevioletred;
+            line-height: 3.4;
+        }
+        #instaTag{
+            text-decoration-line: none;
+            color:white;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        #faceBook{
+            text-decoration-line: none;
+            color:white;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        .gallery{
+            animation-name: imgTran;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes imgTran{
+            from{
+                transform:translate(1);
+            }
+            to{
+                transform:translate(2);
+            }
+        }
+        @media(max-width:480px){
+          #main .entireBG {
+            display: block;
+          }
+        }

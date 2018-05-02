@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>데이터 입/출력</title>
+<style>
+	.area {
+		width:300px;
+		height:100px;
+		border:1px solid black;
+	}
+</style>
+<script>
+    function checkValue()
+    {
+        document.getElementById("area1").innerHTML="innerHTML 속성으로 값 변경함";
+    }
+    function printConsole()
+    {
+        var logVal = document.getElementsByTagName("p");
+        console.log("콘솔 화면에 출력하기");
+    }
+    var resultList ="";
+    function checkGender()
+    {
+        var gender = window.confirm("남자면 Yes 여자면 No를 눌러주세요.");
+        resultList+= gender?"당신은 남자입니다.":"당신은 여자입니다.\n"; 
+        document.getElementById("area2").innerHTML="<pre>" + resultList + "\n</pre>";;
+    }
+    function testPrompt()
+    {
+        var result = window.prompt("이름을 입력해보세요.");
+        area3.innerHTML += "앗! 당신이" +result+"이군요!";
+    }
+</script>
+</head>
+<body>
+	<h1>자바스크립트의 데이터 입/출력</h1>
+	<!-- <script type="text/javascript">
+		document.write("document.writer()로 출력함");
+		alert("출력 문구를 실행하였습니다.");
+	</script> -->
+	
+	<br>
+	
+	<h3>innerHTML로 요소의 내용 변경하기</h3>
+	<div id="area1">자바스크립트에서 태그 앨리먼트의 값을 읽어가거나, 값을 변경할 때 innerHTML 속성을 사용함.</div><br>
+	<button onclick="checkValue();">innerHTML 확인</button>
+	
+	
+	<hr>
+	
+	<h3>console.log()로 개발자도구 콘솔화면에 출력하기</h3>
+	<p>개발자도구 콘솔화면에 출력을 하고자 할 때 사용하며, 디버깅 할 때 주로 사용된다.</p>
+	<button onclick="printConsole();">콘솔에 내용 출력</button>
+	
+	<hr>
+	
+	<h3>window.confirm()을 이용한 데이터 입력</h3>
+	<p>어떤 질문에 대해 "예/아니오"의 결과를 얻을 때 사용한다.</p>
+	<p>확인 버튼과 취소버튼이 나타나며, 확인버튼을 클릭시 true, 취소버튼을 클릭시 false를 리턴한다.</p>
+	<button onclick="checkGender();">성별 확인하기</button>
+	<div id="area2" class="area"></div>
+	
+	<hr>
+	
+	<h3>window.prompt()를 이용한 데이터 입력</h3>
+	<p>텍스트필드와 확인/취소버튼이 있는 대화상자 출력하고 입력한 메세지 내용을 리턴값으로 돌려받는다.</p>
+	<button onclick="testPrompt()">이름입력</button>
+	<div id="area3" class="area"></div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

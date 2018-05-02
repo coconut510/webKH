@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    </head>
+    <body>
+     <div id="div1" style="border:1px solid black; height:100px; width:400px;">
+         한영진, 한소원, 한아름, sinjas
+     </div>
+     <button onclick="stringFunction();">클릭</button>
+     <script>
+        function stringFunction()
+         {
+             var div = document.getElementById("div1");
+             div.innerHTML=div.innerHTML.toUpperCase();
+         }
+     </script>
+    </body>
+</html>

@@ -24,10 +24,13 @@
         function test5()
         {
             var arr = document.getElementsByTagName("input");
+            var title = document.getElementsByTagName("label");
+            var result = "";
             for(var i=0; i<arr.length;i++)
             {
-                console.log(arr[i].value);
+                result+=  title[i].innerHTML+ arr[i].value + "\n";
             }
+            alert(result);
         }
     </script>
 </head>

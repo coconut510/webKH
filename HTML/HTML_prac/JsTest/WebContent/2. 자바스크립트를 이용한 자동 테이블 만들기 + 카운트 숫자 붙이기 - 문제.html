@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>학생정보 입력</title>
+ <script>
+  function table_make()
+    {
+        var width = window.prompt("열의 개수를 입력하세요");    
+        var height = window.prompt("행의 개수를 입력하세요");
+        var tableStr = "<table style='border:1px solid black;  '>";
+        var result = 0;
+        for(var i = 0; i<height;i++)
+        {
+            tableStr += "<tr style='height:100px;'>";
+            for(var j = 0; j<width;j++)
+            {
+               result = (i*width + j+1);
+               tableStr +="<td style='width:100px; border:1px solid black; text-align:center;'>" +result +"</td>"; 
+            }
+        }
+        tableStr+="</table>"
+       document.write(tableStr);
+    }
+    </script>
+</head>
+<body>
+    <h1> 자동 테이블 만들기 </h1>
+    <h5>    힌트 : 반복문은 자바랑 같습니다. 다만! 변수만 var 데이터형이라는걸 기억해주세요 </h5>
+    
+
+<button onclick="table_make();">테이블 생성</button>
+
+
+    
+</body>
+</html>
