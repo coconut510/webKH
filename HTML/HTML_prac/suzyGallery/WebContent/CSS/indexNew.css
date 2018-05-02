@@ -52,7 +52,8 @@
             display:flex;
         }
         #main .entireBG div{
-            flex-grow: 2;
+            flex-grow: 1;
+            width:32%;
             margin:0.1rem;
         }
         
@@ -119,4 +120,7 @@
           #main .entireBG {
             display: block;
           }
+            #main .entireBG div{
+                width:100%;
+            }
         }

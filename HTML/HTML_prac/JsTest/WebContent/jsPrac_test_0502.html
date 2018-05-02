@@ -5,15 +5,25 @@
     <title>Insert title here</title>
     </head>
     <body>
-     <div id="div1" style="border:1px solid black; height:100px; width:400px;">
-         한영진, 한소원, 한아름, sinjas
+     <div id="div1" style="border:1px solid black; height:400px; width:400px;">한영진, 한소원, 한아름, Sinjas
      </div>
      <button onclick="stringFunction();">클릭</button>
      <script>
         function stringFunction()
          {
              var div = document.getElementById("div1");
-             div.innerHTML=div.innerHTML.toUpperCase();
+             var result ="";
+             result +=div.innerHTML.toUpperCase() + "<br>";
+             result +=div.innerHTML.toLowerCase()+ "<br>";
+             result +=div.innerHTML.length+ "<br>";
+             result +=div.innerHTML.indexOf('소')+ "<br>";
+             result +=div.innerHTML.lastIndexOf('한')+ "<br>";
+             result +=div.innerHTML.charAt(2)+ "<br>";
+             result +=div.innerHTML.substring(5,8)+ "<br>";
+             
+             var arr = div.innerHTML.split(",");
+             result +=arr[1]+ "<br>";
+             div.innerHTML = result;
          }
      </script>
     </body>
