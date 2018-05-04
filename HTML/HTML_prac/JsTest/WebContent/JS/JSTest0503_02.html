@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    function checkLogic()
+    {
+        var num = window.prompt("숫자를 입력하세요.");
+        num%2==0 || alert(num + "는 홀수입니다.");
+        num%2==0 && alert(num + "는 짝수입니다.");
+    }
+    
+    var select="";
+    function choice(twChoice)
+    {
+        var imgArr = document.getElementsByTagName("img");
+        
+        if(select==""){
+            if(twChoice=="jj")
+            {
+                imgArr[0].style="width:400px; height:400px; border:10px dotted red";
+                imgArr[1].style="width:0px; height:0px;";
+            }
+            else{
+                imgArr[0].style="width:0px; height:0px;";
+                imgArr[1].style="width:400px; height:400px; border:10px dotted blue";
+            }
+            select = twChoice;              
+        }
+        else{
+            for(var i = 0; i<imgArr.length;i++)
+            {
+                imgArr[i].style="width:200px; height:200px; border:none;";
+            }
+            select="";
+        }
+       
+    }
+</script>
+</head>
+<body>
+	<h1>연산자 문제</h1>
+
+	<h3>연산자를 이용한 짧은 조건문 사용 테스트 (|| 와 &&를 사용하세요)</h3>
+	<button onclick="checkLogic();">실행확인</button>
+
+	<br><br>
+	<hr><hr>
+	<br><br>
+	<h3>문제2. 다음 중 이쁜 사람은 누구인가요?<h3>
+	
+	<img src="jj.jpg" height="200px" width="200px" onclick="choice('jj');"/> 
+	<img src="ss.jpg" height="200px" width="200px" onclick="choice('ss');"/>
+	
+	
+</body>
+</html>

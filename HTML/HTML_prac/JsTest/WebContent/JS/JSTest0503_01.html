@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        #div1{
+            border:1px solid black;
+            height : 300px;
+            width: 400px;
+        }
+    </style>    
+    <script>
+        function siteMove()
+        {
+           var siteName = document.getElementById("site").value;
+           if(siteName=="네이버")
+           {
+               window.open("http://www.naver.com");
+           }
+            else if(siteName=="구글")
+            {
+                window.open("http://www.google.com");
+            }
+            else if(siteName=="다음")
+            {
+                window.open("http://www.daum.net");
+            }
+            else{
+                alert("지원하지 않는 사이트 입니다.");
+            }
+        }
+    </script>
+</head>
+    <body>
+        <input type="text" id="site">
+        <button onclick="siteMove();">이동</button>
+    </body>
+</html>
