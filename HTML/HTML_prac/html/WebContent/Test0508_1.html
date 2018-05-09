@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[화면 구현 문제1번]</title>
+    <style>  </style>
+</head>
+    <body>
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol type="1">
+                <li>납품자명 : <input type="text" placeholder="name"></li>
+                <li>email : <input type="email" placeholder="answs@naver.com"></li>
+                <li>홈페이지 : <input type="url" placeholder="http://"></li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul>
+                <li>상품명 :
+                    <input type="text" id="" list="productList">
+                    <datalist id="productList">
+                        <option value="dog1004" label="도그1004"></option>
+                        <option value="catchicken" label="고양이치킨"></option>
+                        <option value="milk" label="우유"></option>
+                    </datalist>
+                </li>
+                <li>납품수량 : <input type="number" min=10 step=10 placeholder="최소 10이상"></li>
+                <li>납품등급 : <input type="range" min=0 max=10 step=2></li>
+                <li>기타사항 : <textarea name="" id="" cols="30" rows="1"></textarea></li>
+            </ul>
+        </fieldset>
+    </body>
+</html>

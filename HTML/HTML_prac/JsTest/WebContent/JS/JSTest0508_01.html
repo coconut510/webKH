@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        function myfunc()
+        {
+            var name = window.prompt("당신의 이름은?");
+            var age = window.prompt("당신의 나이는?");
+            var addr = window.prompt("당신의 주소는?");
+            
+            var object = {name:name, 
+                          age:age, 
+                          addr:addr,
+                          printData:function(){
+                              var str = "이름 : " + this.name+"\n"+
+                                   "나이 : " + this.age+"\n"+
+                                   "주소 : " + this.addr+"\n"; 
+                              return str;
+                          }};
+            console.log(object.printData());
+        }
+    </script>
+</head>
+    <body>
+        <button onclick="myfunc();">클릭</button>
+    </body>
+</html>

@@ -194,7 +194,15 @@ decodeURIComponent()
 ## eval(String) ##
 -> 문자열로 기술된 코드를 자바스크립트로 실행 함
 
+## isFinite(number) ##
+-> number(숫자) 가 맞는지를 확인하는 함수(숫자가 맞으면 true)
+-> isNaN에 반대 기능
+-> 단, 아무것도 없을시에도 true가 나옴
 
+## isNaN(number) ##
+-> number가 NaN 인지를 확인(숫자가 아니면 true)
+	- NaN은 Not a Number의 약자
+-> isFinite의 반대 기능
 
 
 

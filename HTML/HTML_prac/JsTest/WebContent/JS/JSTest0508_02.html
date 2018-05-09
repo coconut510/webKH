@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        function myfunc()
+        {
+            var name = document.getElementById("name").value;
+            var age =document.getElementById("age").value;
+            var addr = document.getElementById("addr").value;
+            
+            var object = {name:name, 
+                          age:age, 
+                          addr:addr,
+                          memberInfo:function(){
+                              var str = "이름 : " + this.name+"\n"+
+                                   "나이 : " + this.age+"\n"+
+                                   "주소 : " + this.addr+"\n"; 
+                              return str;
+                          }};
+            console.log(object.memberInfo());
+            console.log(object);
+        }
+    </script>
+</head>
+    <body>
+       <h1>문제</h1>
+       각 input 태그에 맞는 데이터를 입력 받은후<br>
+       처리 버튼을 클릭하면 자바스크립트 내부에서 객체에 저장하여<br>
+       console.log로 객체 정보를 출력하여라.<br>
+       단, console.log(object.memberinfo);를 하였을때<br>
+       이름, 나이, 주소가 출력될수 있도록 만들어라.<br><br>
+        이름 : <input type="text" id="name"><br>
+        나이 : <input type="text" id="age"><br>
+        주소 : <input type="text" id="addr"><br>
+        <button onclick="myfunc();">처리</button>
+    </body>
+</html>
