@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>      
+        var elArr;
+        function validChk()
+        {
+            elArr = document.getElementsByClassName("insertBox");
+            var chk = false;
+            for(var i =0 ; i<elArr.length;i++)
+            {
+                if(elArr[i].value.length>0) chk = true;
+                else 
+                {
+                    alert("빈 항목 없이 입력해야합니다.");
+                    chk= false;
+                    break;
+                }
+            }
+            if(elArr[1].value != elArr[2].value)
+            {
+                alert("비밀번호가 일치해야 합니다."); 
+                elArr[1].style.backgroundColor ="red";
+                elArr[2].style.backgroundColor ="red";
+                return false;                
+            }
+           
+        }
+        function cancle()
+        {
+            for(var i = 0; i<elArr.length;i++)
+            {
+                elArr[i].style.backgroundColor ="white";
+            }
+        }
+    </script>
+    <style>
+        li{
+            float:left;
+            height:35px;
+        }
+        fieldset{
+            width:300px;
+            height:300px;
+        }
+    </style>
+    </head>
+    <body>
+      <center>
+       <form action="/join.html" method="get">
+           <fieldset>
+           <legend style="text-align: center;">회원가입</legend>
+           <br>
+           <ol style="list-style: none;">
+               <li><pre>ID :     <input type="text" class="insertBox"></pre></li>
+               <li><pre>PW :     <input type="password"  class="insertBox"/></pre></li>
+               <li><pre>PW(re) : <input type="password"  class="insertBox"/></pre></li>
+               <li><pre>NAME :   <input type="text" class="insertBox"></pre></li>
+           </ol>          
+           </fieldset>
+           <br>
+            <input type="submit" value="회원가입" onclick="return validChk();"/>
+            <input type="reset" value="취소" onclick="cancle();"/>
+       </form>
+       </center>
+    </body>
+</html>

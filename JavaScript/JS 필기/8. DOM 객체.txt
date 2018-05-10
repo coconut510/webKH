@@ -1,0 +1,372 @@
+
+@ DOM
+-> Document Object Model
+-> 문서 객체라고함
+-> HTML에 있는 태그를 객체화 하여 자바스크립트에서 다룰 수 있게 만든 객체
+-> 모든 노드객체에 접근할 수 있는 요소와 함수를 제공함
+
+
+@ 요소노드(element node)와 텍스트 노드(textnode)
+-> 요소노드 : 태그 자체를 의미함
+-> 텍스트 노드 : 태그에 기록되어 있는 문자를 의미
+	* 텍스트 노드를 가지는 태그(h태그, p 태그 등등)와 가지지 않는 태그(img, input등...)
+	가 있음
+
+
+@ 텍스트 노드가 있는 문서 객체 생성(태그 생성한다는 의미)
+document.createElement(태그명)		요소노드 생성
+document.createTextnode(내용)		텍스트노드 생성
+객체명.appendChild(node)		태그에 자손으로 노드를 추가
+
+* 즉, 자바스크립트를 가지고 태그와 내용을 생성할 수 있다는 것을 의미함
+
+ex)
+  <script>
+        function myfunc()
+        {
+            var parent = document.getElementById("test");
+            var tag = document.createElement('div');
+            tag.style ="width:100px; height:50px; background-color:red";
+            var text = document.createTextNode('Hello World');
+            tag.append(text);
+            test.appendChild(tag);
+        }
+    </script>
+
+
+@ 텍스트 노드 없는 문서 객체 생성
+-> 텍스트 노드가 없는 객체를 생성할 수 있음(img, input 등등..)
+-> 요소노드 생성은 createElement 함수를 그대로 사용함
+
+
+## 해당 노드에 속성값 부여하기 및 값 가져오기 ##
+
+
+객체명(변수).속성 = 속성값		태그에 속성값 설정
+객체명.setAttribute(속성명, 속성값)	태그에 속성값 설정
+	-> setAttribute를 사용하면 사용자 정의 속성값도 가능함.
+객체명.getAttribute(속성명)		태그의 속성값 확인
+객체명.appendChild(node)		태그에 자손으로 노드를 추가(기존과 같음
+
+@ 문서 객체 제거
+-> 페이지 내 작성된 문서의 객체(태그)를 제거하는 것
+
+부모객체명.removeChild(객체명)		부모 객체의 자손 태그를 제거
+객체명.remove();			해당 객체를 제거
+
+ex)
+    <script>
+        function deleteFunc(id,element)
+        {
+            document.getElementById(id).remove();
+            element.remove();
+        }
+    </script>
+
+@ 이벤트
+-> 웹페이지에서 어떠한 행위(사용자의 행동)가 발생한 것을 이벤트 라고 함
+(우리는 이미 onclick(클릭했을 경우) 이벤트를 사용했었음)
+-> 웹에서는 다양한 이벤트가 존재함
+	* 너무 내용이 많으니.. 구글 검색: 자바스크립트 이벤트 종류
+
+@ 이벤트의 활용
+-> 이벤트 속성과 이벤트 핸들러(함수) 를 연동하여 이벤트 발생시 
+특정 기능을 하도록 할 수 있음 
+
+@ 이벤트 설정 방법
+-> 고전 이벤트 모델
+-> 인라인 이벤트 모델
+-> 표준 이벤트 모델
+
+## 고전 이벤트 모델 ##
+-> 요소 객체가 가지고 있는 이벤트 속성에 이벤트 핸들러를 연결하는 방법
+-> 이름은 고전 이지만 현재에도 많이 사용되는 방법임
+-> 이벤트를 제거할때에는 속성값에 null을 넣어 주면 됨
+
+ex) 클릭시 이벤트 기능 설정
+
+var h = document.getElementById('id명');
+h.onclick=function(){
+	수행기능 설정;
+	h.onclick = null; // 이벤트 기능 삭제(함수안에 설정시 1번만 실행하는 이벤트임)
+};
+
+ex)
+ 	<script>
+       		window.onload = function(){
+           	var btn = document.getElementById("btn1");
+           	btn.onclick= function()
+           	{
+               		alert("실행되었습니다");
+               		btn.onclick = null;// 한번 실행 후 이벤트 삭제
+           	}
+       	}
+    	</script>
+
+## 인라인 이벤트 모델 ##
+-> 요소 내부에 이벤트 작성하는 방법
+-> 인라인 방식은 <script> 태그에 있는 함수를 호출하는 방식을 선호함
+
+ex) 클릭 이벤트 처리
+<button onclick='처리로직'> 클릭</button>
+
+혹은
+
+<button onclick="함수호출">클릭</button>
+
+## 표준 이벤트 모델 ##
+-> w3c에서 공식적으로 지정한 이벤트 모델
+-> 한번에 여러가지 이벤트 핸들러 설정 가능
+-> 이벤트 리스너를 설정하는 방법
+
+# 이벤트 생성 #
+addEventListener(이벤트 이름, 핸들러)
+
+
+# 이벤트 삭제 #
+removeEventListener(이벤트 이름, 핸들러)
+
+ex) 클릭시 이벤트 설정
+var h = document.getElementById('id명');
+h.addEventListener('click', function(){
+			수행 기능 설정
+		});
+
+ex)
+
+<script>
+       window.onload = function(){
+           var btn = document.getElementById("btn1");
+           addEventListener('click',function()
+           {
+               alert("첫번째 버튼이 실행됐습니다.");
+           });
+       }
+    </script>
+
+ex)
+  <script>
+       window.onload = function(){
+           var btn = document.getElementById("btn1");
+           
+           btn.addEventListener('click',function()
+           {
+               alert("첫번째 버튼이 실행됐습니다.");
+               btn1.removeEventListener('mouseenter',mouseUp);
+           });
+           
+           var mouseUp=function(){
+               console.log("마우스가 버튼위에 있습니다.");
+           };     
+           btn.addEventListener('mouseenter',mouseUp);
+       }
+    </script>
+
+@ 기본 이벤트 제거
+-> 기본 이벤트 : 태그 중 이벤트 핸들러를 기본적으로 가지고 있는것
+	* a 태그 , input type="submit" 등...
+
+ex)
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+       
+        function validChk()
+        {
+            if(document.getElementById("pwd").value.length>0) return true;
+            else 
+            {
+                alert("비밀번호를 입력해야합니다.");
+                return false;
+            }
+        }
+    </script>
+    </head>
+    <body>
+       <form action="/join.html" method="get">
+           비밀번호 : <input type="password" id="pwd"/><br>
+           <input type="submit" value="회원가입" onclick="return validChk();"/> // true false
+       </form>
+    </body>
+</html>
+
+
+@ 정규 표현식
+-> 정규식은 특정한 규칙을 가진 문자열의 집합을 표현하는데 사용하는 형식 언어
+-> 많은 텍스트 편집기와 프로그래밍 언어에서 문자열의 검색과 치환을 위해 지원하고 있음
+-> 정규식에서 사용하는 기호를 Meta 문자라고 함
+	- Meta문자는 어떠한 의미가 있는 문자
+-> 실질적으로 유효성을 체크할때 정규표현식을 많이 사용함
+-> 정규표현식은 다양한 표현식이 존재함
+
+
+@ 자바슼립트에서 정규표현식을 사용하는 방법
+
+1. RegExp 객체를 이용하는 방법
+	var regExp = new RegExp('정규표현식',['Flag']);
+
+2. 객체 초기화를 사용하는 방법
+	var objectInitializer = /정규표현식/[Flag];
+
+
+## Flag 의 종류 ##
+
+g	Global		문자열 내의 모든 패턴을 찾음
+i	Ignore Case	문자열의 대소문자를 구별하지 않고 찾음
+m	Multi Line	문자열의 행이 바뀌어도 찾음
+
+
+## 기본적인 정규 표현식 ##
+^		라인의 시작   	ex) var regExp = /^a/;
+$		라인의 끝	ex) var regExp = ;
+.		모든 단일 문자
+[]		대괄호 사이의 존재하는 문자들 중 하나 일치
+?		앞에 존재하는 문자가 있을수도 없을수도 있을때 사용
+		-앞에 존재하는 문자가 있을수도 없을수도 있을때 사용
+		- 수량자(*,+,?,{}) 뒤에 사용하면 최단 검색의 의미
+		* ?는 2가지가 의미가 있음
+{}		횟수만큼 반복
+* 		0회 이상 반복되는 앞선 문자 일치
++		1회 이상 반복되는 앞선 문자 일치
+()		그룹화
+
+* 이외에도 정규 표현은 다양함
+
+
+## 정규식에서 사용되는 기본 함수 ##
+-> test : 일치하는 문자열을 검사할때 사용(true, false 리턴)
+-> exec : 일치하는 문자열을 찾을대 사용(찾아서 배열로 문자열을 리턴함)
+-> replace : 일치하는 문자열을 찾아 대체함 (
+
+
+ex)
+    <script>
+        function check()
+        {
+            var val = document.getElementById("textTest").value;
+            var regExp = /@/;
+            // 입력값에 a가 무조건 있어야 할때.
+            var result = regExp.test(val);
+            
+            console.log(result);
+            
+            if(result) alert("정상처리 되었습니다.");
+            else alert("처리 실패 하였습니다.");
+        }
+    </script>
+
+
+ex1) a 글자가 포함 되어야 할때
+
+-> /a/
+
+ex2) a 글자로 시작 되어야 할때
+
+-> /^a/
+
+ex3) a 또는 b 글자가 포함되어야 할때
+
+-> /[ab]/
+
+ex4) a 또는 b로 시작해야 할때.
+ /^[ab]/
+
+ex5) 마지막 글자가 a 로 끝나야 할때
+ /a$/
+
+ex6) a 로 시작하고 b로 끝나야 한다면.(중간에 단일글자가 n개일때)
+/^a.*b$/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
