@@ -6,20 +6,21 @@
     <script>
         function check()
         {
-            var val = document.getElementById("textTest").value;
-            var regExp = /^a.*b$/;
-            // 입력값에 a가 무조건 있어야 할때.
-            var result = regExp.test(val);
+            var str = "<span class='ah_k'>현도훈</span><span class='ah_k'>김구</span><span class='ah_k'>John</span>";
+            var data = str;
+            var regExp =  /<.+?>(.+?)<.+?><.+?>(.+?)<.+?><.+?>(.+?)<.+?>$/;                 
+            var result = regExp.exec(data);
             
-            console.log(result);
-            
-            if(result) alert("정상처리 되었습니다.");
-            else alert("처리 실패 하였습니다.");
+            console.log(result[0]);
+            console.log(result[1]);
+            console.log(result[2]);
+            console.log(result[3]);
+            data.innerHTML = result;
         }
     </script>
     </head>
     <body>
-        <input type="text" id="textTest"/>
+<!--        <div id="data"><p>Hello</p><p>World</p></div>-->
         <button onclick="check();">체크</button>
     </body>
 </html>

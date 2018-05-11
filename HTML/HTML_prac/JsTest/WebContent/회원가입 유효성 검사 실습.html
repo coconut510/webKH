@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    function check()
+    {
+        var chk;
+        var regExp;
+        var topInfo = document.getElementById("message");
+        var idInput = document.getElementById("user_id");
+        var pwInput = document.getElementById("pw");
+        var pwReInput = document.getElementById("pw_re");
+        var nameInput = document.getElementById("user_name");
+        var addrInput = document.getElementById("addr");
+        var post1Input = document.getElementById("post_1");
+        var post2Input = document.getElementById("post_2");
+        var emailInput = document.getElementById("email");
+        var tel1Input = document.getElementById("tel1");
+        var tel2Input = document.getElementById("tel2");
+        var tel3Input = document.getElementById("tel3");
+        
+        reset();
+        
+        /*아이디 입력*/
+        regExp = /^[A-z][A-z0-9]{3,11}$/;
+        chk = regExp.test(idInput.value);
+        if(chk==false) 
+        {
+            topInfo.innerHTML = "아이디는 소문자,숫자만 가능하고 4~12글자 입력바랍니다.";
+            idInput.style.backgroundColor="red";
+            return false;
+        }
+        
+        /*비밀번호 입력*/
+        regExp=/^[A-z0-9]{8,12}/;
+        chk = regExp.test(pwInput.value);
+        if(chk==false)
+        {
+            topInfo.innerHTML = "아이디는 소문자,숫자만 가능하고 4~12글자 입력바랍니다.";
+            pwInput.style.backgroundColor="red";
+            pwReInput.style.backgroundColor="red";
+            return false;
+        }
+        else{
+            if(pwInput.value!=pwReInput.value){
+                topInfo.innerHTML = "비밀번호와 비밀번호 확인 값은 같아야 합니다.";
+                pwInput.style.backgroundColor="red";
+                pwReInput.style.backgroundColor="red";
+                return false;
+            }             
+        }
+        
+        /*이름 입력*/
+        regExp=/^[가-힣]+$/;
+        chk = regExp.test(nameInput.value);
+        if(chk==false)
+        {
+            topInfo.innerHTML = "이름은 한글(최소1글자)만 가능합니다.";
+            nameInput.style.backgroundColor="red";
+            return false;
+        }
+        
+        /*주소 입력*/
+        regExp=/^[가-힣' ']+$/;
+        chk = regExp.test(addrInput.value);
+        if(chk==false)
+        {
+            topInfo.innerHTML = "주소 입력은 영어 사용이 불가합니다. (공백 불가)";
+            addrInput.style.backgroundColor="red";
+            return false;
+        }
+        
+        /*우편번호 입력*/
+        regExp=/^[0-9]+$/;
+        if(regExp.test(post1Input.value)==false || regExp.test(post2Input.value)==false)
+        {
+            topInfo.innerHTML = "우편번호는 숫자만 입력 가능합니다.";
+            post1Input.style.backgroundColor="red";
+            post2Input.style.backgroundColor="red";
+            return false;
+        }
+        
+        /*이메일 입력*/
+        regExp=/[A-z0-9]{4,12}@.+?/;
+        chk = regExp.test(emailInput.value);
+        if(chk==false)
+        {
+            topInfo.innerHTML = "이메일을 재확인해주세요";
+            emailInput.style.backgroundColor="red";
+            return false;
+        }
+        
+        /*폰번호 입력*/
+        regExp=/^[0-9]{3,4}$/;
+        var regExp2 = /^[0-9]{4}/;
+        if((tel1Input.value=='010')==false ||regExp.test(tel2Input.value)==false ||
+          regExp2.test(tel3Input.value)==false)
+        {
+            topInfo.innerHTML = "폰번호를 재확인 해주세요";
+            tel1Input.style.backgroundColor="red";
+            tel2Input.style.backgroundColor="red";
+            tel3Input.style.backgroundColor="red";
+            return false;
+        }
+        return chk;
+    }
+    function reset()
+    {
+        var allInput = document.getElementsByTagName("input");
+        for(var i = 0; i<allInput.length;i++)
+        {
+            allInput[i].style.backgroundColor="white";
+        }
+    }
+</script>
+</head>
+<body>
+
+    
+<style>
+    fieldset{
+        height:400px;
+        width:400px;
+    }
+    #message{
+        color:blue;
+    }
+</style>
+        문제<br>
+    회원가입시 각 필드마다 유효성 검사를 하여 처리 할 수 있도록 만들어라. <br>
+    1. ID는 영어소문자,숫자만 가능해야함(4~12자리,소문자로 시작해야함) <br>
+    2. PW는 영어소문자,대문자,숫자만 입력 가능해야 하고 (최소 8~12자리) <br>
+    3. PW와 PW_re는 같아야 함<br>
+    4. NAME은 무조건 한글만 가능해야 함(최소1글자 이상)<br>
+    5. 주소에는 영어 사용 불가(공백 불가)<br>
+    6. 우편번호는 무조건 숫자만 입력 가능해야 함<br>
+    7. 이메일은 @가 포함 되어야 함(@앞에가 영문자,숫자로  4~12글자 ) <br>
+    8. 전화번호는 첫번째 필드는 010만 입력 가능 해야 함 <br>
+                두번째 필드는 3자리 이상 입력 해야 함 <br>
+                세번째 필드는 무조건 4자리 입력 해야함 <br>
+               (모두 숫자만 가능 해야함) <br>
+    
+<center>
+
+    <fieldset>
+        <legend>회원가입</legend>
+<pre>
+<span id="message" style="color:blue;"></span>
+            <form action="join" method="post">
+ID :        <input type="text" id="user_id" /><br>
+PW :        <input type="password" id="pw" /><br>
+PW_re :     <input type="password" id="pw_re" /><br>
+NAME :      <input type="text" id="user_name" /><br>
+ADDRESS :   <input type="text" id="addr" /><br>
+POST NUMBER:  <input type="text" size="5" id="post_1" /> - <input type="text" size="5" id="post_2" /> <br>
+E-MAIL :    <input type="text" id="email" /><br>
+PHONE :     <input type="text" id="tel1" size="2" maxlength="3" />-<input type="text" id="tel2" size="2" maxlength="4" />-<input type="text" id="tel3" size="2" maxlength="4" /><br>
+<input type="submit" value="회원가입" onclick="return check();"/>  <input type="reset" value="취소" />
+            </form>
+</pre>
+    </fieldset>
+</center>
+
+</body>
+</html>
+    
+    
+    
+    
+    
+    

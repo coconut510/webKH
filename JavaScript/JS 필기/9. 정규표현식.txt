@@ -1,0 +1,258 @@
+
+
+@ Á¤±Ô Ç¥Çö½Ä
+-> Á¤±Ô½ÄÀº Æ¯Á¤ÇÑ ±ÔÄ¢À» °¡Áø ¹®ÀÚ¿­ÀÇ ÁýÇÕÀ» Ç¥ÇöÇÏ´Âµ¥ »ç¿ëÇÏ´Â Çü½Ä ¾ð¾î
+-> ¸¹Àº ÅØ½ºÆ® ÆíÁý±â¿Í ÇÁ·Î±×·¡¹Ö ¾ð¾î¿¡¼­ ¹®ÀÚ¿­ÀÇ °Ë»ö°ú Ä¡È¯À» À§ÇØ Áö¿øÇÏ°í ÀÖÀ½
+-> Á¤±Ô½Ä¿¡¼­ »ç¿ëÇÏ´Â ±âÈ£¸¦ Meta ¹®ÀÚ¶ó°í ÇÔ
+	- Meta¹®ÀÚ´Â ¾î¶°ÇÑ ÀÇ¹Ì°¡ ÀÖ´Â ¹®ÀÚ
+-> ½ÇÁúÀûÀ¸·Î À¯È¿¼ºÀ» Ã¼Å©ÇÒ¶§ Á¤±ÔÇ¥Çö½ÄÀ» ¸¹ÀÌ »ç¿ëÇÔ
+-> Á¤±ÔÇ¥Çö½ÄÀº ´Ù¾çÇÑ Ç¥Çö½ÄÀÌ Á¸ÀçÇÔ
+
+
+@ ÀÚ¹Ùš¿¸³Æ®¿¡¼­ Á¤±ÔÇ¥Çö½ÄÀ» »ç¿ëÇÏ´Â ¹æ¹ý
+
+1. RegExp °´Ã¼¸¦ ÀÌ¿ëÇÏ´Â ¹æ¹ý
+	var regExp = new RegExp('Á¤±ÔÇ¥Çö½Ä',['Flag']);
+
+2. °´Ã¼ ÃÊ±âÈ­¸¦ »ç¿ëÇÏ´Â ¹æ¹ý
+	var objectInitializer = /Á¤±ÔÇ¥Çö½Ä/[Flag];
+
+
+## Flag ÀÇ Á¾·ù ##
+
+g	Global		¹®ÀÚ¿­ ³»ÀÇ ¸ðµç ÆÐÅÏÀ» Ã£À½
+i	Ignore Case	¹®ÀÚ¿­ÀÇ ´ë¼Ò¹®ÀÚ¸¦ ±¸º°ÇÏÁö ¾Ê°í Ã£À½
+m	Multi Line	¹®ÀÚ¿­ÀÇ ÇàÀÌ ¹Ù²î¾îµµ Ã£À½
+
+
+## ±âº»ÀûÀÎ Á¤±Ô Ç¥Çö½Ä ##
+^		¶óÀÎÀÇ ½ÃÀÛ   	ex) var regExp = /^a/;
+$		¶óÀÎÀÇ ³¡	ex) var regExp = ;
+.		¸ðµç ´ÜÀÏ ¹®ÀÚ
+[]		´ë°ýÈ£ »çÀÌÀÇ Á¸ÀçÇÏ´Â ¹®ÀÚµé Áß ÇÏ³ª ÀÏÄ¡
+?		¾Õ¿¡ Á¸ÀçÇÏ´Â ¹®ÀÚ°¡ ÀÖÀ»¼öµµ ¾øÀ»¼öµµ ÀÖÀ»¶§ »ç¿ë
+		-¾Õ¿¡ Á¸ÀçÇÏ´Â ¹®ÀÚ°¡ ÀÖÀ»¼öµµ ¾øÀ»¼öµµ ÀÖÀ»¶§ »ç¿ë
+		- ¼ö·®ÀÚ(*,+,?,{}) µÚ¿¡ »ç¿ëÇÏ¸é ÃÖ´Ü °Ë»öÀÇ ÀÇ¹Ì
+		* ?´Â 2°¡Áö°¡ ÀÇ¹Ì°¡ ÀÖÀ½
+{}		È½¼ö¸¸Å­ ¹Ýº¹
+* 		0È¸ ÀÌ»ó ¹Ýº¹µÇ´Â ¾Õ¼± ¹®ÀÚ ÀÏÄ¡
++		1È¸ ÀÌ»ó ¹Ýº¹µÇ´Â ¾Õ¼± ¹®ÀÚ ÀÏÄ¡
+()		±×·ìÈ­
+
+* ÀÌ¿Ü¿¡µµ Á¤±Ô Ç¥ÇöÀº ´Ù¾çÇÔ
+
+
+## Á¤±Ô½Ä¿¡¼­ »ç¿ëµÇ´Â ±âº» ÇÔ¼ö ##
+-> test : ÀÏÄ¡ÇÏ´Â ¹®ÀÚ¿­À» °Ë»çÇÒ¶§ »ç¿ë(true, false ¸®ÅÏ)
+-> exec : ÀÏÄ¡ÇÏ´Â ¹®ÀÚ¿­À» Ã£À»´ë »ç¿ë(Ã£¾Æ¼­ ¹è¿­·Î ¹®ÀÚ¿­À» ¸®ÅÏÇÔ)
+-> replace : ÀÏÄ¡ÇÏ´Â ¹®ÀÚ¿­À» Ã£¾Æ ´ëÃ¼ÇÔ (
+
+
+ex)
+    <script>
+        function check()
+        {
+            var val = document.getElementById("textTest").value;
+            var regExp = /@/;
+            // ÀÔ·Â°ª¿¡ a°¡ ¹«Á¶°Ç ÀÖ¾î¾ß ÇÒ¶§.
+            var result = regExp.test(val);
+            
+            console.log(result);
+            
+            if(result) alert("Á¤»óÃ³¸® µÇ¾ú½À´Ï´Ù.");
+            else alert("Ã³¸® ½ÇÆÐ ÇÏ¿´½À´Ï´Ù.");
+        }
+    </script>
+
+
+ex1) a ±ÛÀÚ°¡ Æ÷ÇÔ µÇ¾î¾ß ÇÒ¶§
+
+-> /a/
+
+ex2) a ±ÛÀÚ·Î ½ÃÀÛ µÇ¾î¾ß ÇÒ¶§
+
+-> /^a/
+
+ex3) a ¶Ç´Â b ±ÛÀÚ°¡ Æ÷ÇÔµÇ¾î¾ß ÇÒ¶§
+
+-> /[ab]/
+
+ex4) a ¶Ç´Â b·Î ½ÃÀÛÇØ¾ß ÇÒ¶§.
+ /^[ab]/
+
+ex5) ¸¶Áö¸· ±ÛÀÚ°¡ a ·Î ³¡³ª¾ß ÇÒ¶§
+ /a$/
+
+ex6) a ·Î ½ÃÀÛÇÏ°í b·Î ³¡³ª¾ß ÇÑ´Ù¸é.(´Ü Áß°£±ÛÀÚ´Â 0±ÛÀÚ ÀÌ»óÀ» ¿øÇÒ¶§)
+/^a.*b$/
+
+ex7) ¼ýÀÚ¸¸ ÀÔ·Â ÇØ¾ß ÇÒ¶§
+/^[0123456789]+$/;   /^[0-9]+$/;
+
+ex8) ¿µ¾î ¼Ò¹®ÀÚ¸¸ ÀÔ·ÂÇØ¾ßÇÒ¶§
+ /^[a-z]+$/
+
+ex9) ¿µ¾î ´ë¹®ÀÚ¸¸ ÀÔ·ÂÇØ¾ßÇÒ¶§
+ /^[A-Z]+$/;
+
+ex10) ¿µ¾î ´ë¼Ò¹®ÀÚ »ó°ü¾øÀÌ ÀÔ·ÂÇØ¾ßÇÒ¶§
+ /^[A-z]+$/;   or /^[a-z]+$/i    (ÇÃ·¡±× »ç¿ë)
+
+ex11) ¿µ¾î ´ë/¼Ò¹®ÀÚ ¶Ç´Â ¼ýÀÚ
+/^[A-z0-9]+$/
+
+ex12) ÇÑ±Û¸¸ ÀÔ·ÂÇØ¾ßÇÒ¶§.
+/^[°¡-ÆR]+$/ (¿Ï¼ºµÈ ÇÑ±Û)
+/^[°¡-ÆR¤¡-¤¾¤¿-¤Ó]+$/;  (¿Ï¼ºµÈ ÇÑ±Û , ÀÚÀ½, ¸ðÀ½¸¸ Àû¾úÀ»¶§µµ)
+
+ex13) ¿µ¹®ÀÚ ¶Ç´Â ¼ýÀÚ¸¦ ÀÔ·ÂÇØ¾ß ÇÏ´Âµ¥ ½ÃÀÛÀº ¿µ¹®ÀÚ·Î ÇØ¾ßµÉ¶§
+ /^[A-z][A-z0-9]+$/
+
+ex14) ¿µ¹®ÀÚ(´ë/¼Ò¹®ÀÚ) ÃÖ¼Ò 3±ÛÀÚ, ÃÖ´ë 5±ÛÀÚ¸¸ ÀÔ·ÂÇØ¾ß ÇÒ¶§
+/^[A-z]{3,5}$/
+
+ex15) ?(¹°À½Ç¥) ±âÈ£ »ç¿ëÇÏ±â
+->?ÀÇ ÀÇ¹Ì : {0,1}
+	- ÇØ¼®: ÃÖ¼Ò0 ¹ø¿¡¼­ ÃÖ´ë 1¹ø
+	- a?  : a°¡ 1°³ ÀÖ°Å³ª ¾ø°Å³ª
+
+/^Hello ?Wold$/i <- Hello World »çÀÌ¿¡ ¶ç¾î¾²±â°¡ ÀÖ°Å³ª ¾ø°Å³ª.
+
+## Hello  World °Ë»ö HelloWordl·Îµµ °Ë»ö(Hello¿Í World»çÀÌÀÇ ¶ç¾î¾²±â´Â 2¹øÀÏ¶§)
+
+-? /^Hello(  )?World$/i
+-> /^Hello {0,2}World$/i
+
+
+## replace »ç¿ëÇØº¸±â
+-> replace ÇÔ¼ö´Â ÀÏÄ¡ÇÏ´Â ¹®ÀÚ¿­À» Ã£¾Æ ´ëÃ¼¹®ÀÚ¿­·Î ¹Ù²Ù¾î ÁÙ¶§ »ç¿ëÇÔ
+
+ex)
+  <script>
+        function check()
+        {
+            var val = document.getElementById("textTest").value;
+            var div1 = document.getElementById("div1");
+            var regExp =  /¸ÛÃ»/; 
+            
+           
+            var result = val.replace(regExp,'**');
+            
+            div1.innerHTML = result;
+        }
+    </script>
+
+
+
+¹®ÀÚ¿­ ³»ÀÇ ¸ðµç ¿µ¾î¿Í ¼ýÀÚ Á¦°Å
+ <script>
+        function check()
+        {
+            var val = document.getElementById("textTest").innerHTML;
+            var div1 = document.getElementById("div1");
+            var regExp =  /[A-z0-9]/g;            
+            var result = val.replace(regExp,'');
+            
+            div1.innerHTML = result;
+        }
+    </script>
+
+## exec ÇÔ¼ö È°¿ëÇÏ±â ##
+-> ()¸¦ »ç¿ëÇÏ¿© ±×·ìÈ­µÈ µ¥ÀÌÅÍ¸¦ °¡Á®¿Ã ¼ö ÀÖÀ½
+-> [0] ¹øÀç´Â Á¤±ÔÇ¥Çö½ÄÀ¸·Î ¸¸µç µ¥ÀÌÅÍ ÀüÃ¼¸¦ °¡Á®¿À°í
+[1],[2],[3]... ºÎÅÍ´Â ±×·ìÈ­µÈ µ¥ÀÌÅÍ¸¦ °¡Á®¿È
+
+
+ex)
+<script>
+        function check()
+        {
+            var data = document.getElementById("data").innerHTML;
+            var regExp =  /(.+?),(.+?),(.+?),(.+?),(.+?)$/i;            
+      
+            var result = regExp.exec(data);
+            console.log(result[0]);
+            console.log(result[1]);
+            console.log(result[2]);
+            console.log(result[3]);
+            console.log(result[4]);
+            console.log(result[5]);
+            data.innerHTML = result;
+        }
+    </script>
+    </head>
+    <body>
+       <div id="data">Hello,World,Mslove,kh,Haha</div>
+        <button onclick="check();">Ã¼Å©</button>
+    </body>
+
+
+ex) ºÙ¾îÀÖ´Â ±ÛÀÚ
+    <script>
+        function check()
+        {
+            var data = document.getElementById("data").innerHTML;
+            var regExp =  /([a-z]?)([a-z]?)([a-z]?)([a-z]?)([a-z]?)$/i;            
+      
+            var result = regExp.exec(data);
+            console.log(result[0]);
+            console.log(result[1]);
+            console.log(result[2]);
+            console.log(result[3]);
+            console.log(result[4]);
+            console.log(result[5]);
+            console.log(result[6]);
+            console.log(result[7]);
+            data.innerHTML = result;
+        }
+    </script>
+    </head>
+    <body>
+       <div id="data">apple</div>
+        <button onclick="check();">Ã¼Å©</button>
+    </body>
+</html>
+
+ex) ÅÂ±×¾È¿¡ ÀÖ´Â ³»¿ë °¡Á®¿À±â
+
+<script>
+        function check()
+        {
+            var data = document.getElementById("data").innerHTML;
+            var regExp =  /<.+?>(.+?)<.+?><.+?>(.+?)<.+?>$/;                 
+            var result = regExp.exec(data);
+            
+            console.log(result[0]);
+            console.log(result[1]);
+            console.log(result[2]);
+            data.innerHTML = result;
+        }
+    </script>
+    </head>
+    <body>
+        <div id="data"><p>Hello</p><p>World</p></div>
+        <button onclick="check();">Ã¼Å©</button>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
