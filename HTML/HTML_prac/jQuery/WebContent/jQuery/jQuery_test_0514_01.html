@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      $(document).ready(function(){
+          $('*').css('color','red');// 전체 선택자
+          $('span').css('background-color','yellow'); // 태그 선택자
+          $('#p4').css('background-color','skyblue');// ID 선택자
+          $('.test').css('text-decoration','underline');// 클래스 선택자
+          $('#p2,#p3').css('background-color','pink');// 멀티플 선택자
+      })
+  </script>
+</head>
+    <body>
+        <p id="p1" class="test">내용1</p>
+        <p id="p2" class="test">내용2</p>
+        <p id="p3" class="test">내용3</p>
+        <p id="p4">내용4</p>
+        <span id="span1" class="test">내용6</span><br><br>
+        <span id="span1">내용6</span><br><br>
+    </body>
+</html>

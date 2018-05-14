@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      $(document).ready(function(){  
+          var $select = $('span').parentsUntil('ul');// span 위부터 div 전까지
+          $select.css('border','2px solid red');
+      });
+  </script>
+  <style>
+      .ancestors *{
+          display:block;
+          border:2px solid lightgrey;
+          color:black;
+          padding:5px;
+          margin:15px;
+      }
+    </style>
+</head>
+    <body>
+         <div class="ancestors">
+             <div stlye="width:500px;">
+                 i'm div (great -grandparent)
+                 <ul>
+                     i'm ul(grandparent)
+                     <li>
+                         i'm li(direct parent)
+                         <span>span</span>
+                     </li>
+                 </ul>    
+             </div>
+             <div style="width:500px;">
+                 div(grandparent)
+                 <p>
+                     p(direct parent)
+                     <span>span</span>
+                 </p>
+             </div>
+         </div>
+    </body>
+</html>

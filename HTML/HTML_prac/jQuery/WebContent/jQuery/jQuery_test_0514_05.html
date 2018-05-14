@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      $(document).ready(function(){        
+          $('ol>li:eq(1)').css('color','orange');
+          $('ol>li:eq(2)').css('color','green');
+          $('ul>li:eq(0)').css('color','blue');
+          $('ul>li:eq(1)').css('color','violet');
+          $('ul>li:eq(2)').css('color','purple');
+      });
+      function clear()
+      {
+            $("table *").removeAttr("style");
+      }
+      function click1(){
+            clear();
+            $('tr:eq(1)>td:nth-child(n+2)').css('color','yellow');
+      }
+      function click2(){
+            clear();
+            $('tr:eq(2)>td:nth-child(n+2)').css('color','yellow');
+      }
+      function click3(){
+            clear();
+            $('td:nth-child(3n+2):not(td:eq(2))').css('color','yellow');
+//            $("td:nth-child(3n+2):contains('1')").css('color','yellow');
+      }
+      function click4(){
+            clear();
+            $('td:nth-child(3n+3):not(td:eq(2))').css('color','yellow');
+      }
+  </script>
+</head>
+    <body>
+        <table border="1">
+            <tr><th>구분</th><th>A</th><th>B</th></tr>
+            <tr><td>가</td><td>10</td><td>10</td></tr>
+            <tr><td>나</td><td>20</td><td>20</td></tr>
+            <tr><td>계</td><td>30</td><td>30</td></tr>
+        </table>
+        <input type="button" value="[가]색 변경" onclick="click1();"/>
+        <input type="button" value="[나]색 변경" onclick="click2();"/>
+        <input type="button" value="[다]색 변경" onclick="click3();"/>
+        <input type="button" value="[라]색 변경" onclick="click4();"/>
+    </body>
+</html>

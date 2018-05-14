@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      $(document).ready(function(){  
+          var $select = $('h2').siblings('p');// h2를 제외한 모든 형제 중에 p태그
+          $select.css('border','2px solid red');
+      });
+  </script>
+  <style>
+      .siblings *{
+          display:block;
+          border:2px solid lightgrey;
+          color:black;
+          padding:5px;
+          margin:15px;
+      }
+    </style>
+</head>
+    <body>
+         <div class="siblings">
+            <div>
+                div(parent)
+                <p>i'm p</p>
+                <span>i'm span</span>
+                <h2>i'm h2</h2>
+                <h3>i'm h3</h3>
+                <h4>i'm h4</h4>
+                <h5>i'm h5</h5>
+                <h6>i'm h6</h6>
+                <p>i'm p</p>
+            </div>
+         </div>
+    </body>
+</html>

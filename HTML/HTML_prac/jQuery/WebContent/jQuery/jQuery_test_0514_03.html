@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      $(document).ready(function(){
+          $('*').css('color','red');
+          $('#text').css('color','orange');
+          $('[name=text]').css('color','yellow');
+          $('.text').css('color','green');
+      });
+  </script>
+</head>
+    <body>
+       <h1>text1</h1>
+       <h1 id="text">text2</h1>
+       <h1 name="text">text3</h1>
+       <h1 class="text">text4</h1>
+    </body>
