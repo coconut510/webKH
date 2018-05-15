@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+     <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script>
+      $(document).ready(function(){
+            $('#btn').click(function(){
+        var output = $('#span1');
+            var str ="";
+            $('tr').each(function(index,item){
+                var tdArr = $(item).children(); 
+                if(index>0){                    
+                    str += index+"번째 학생 이름 : " + $(tdArr.eq(0)).html();
+                    str += " / 나이 : " +  $(tdArr).eq(1).html();
+                    str += " / 주소 :" +  $(tdArr).eq(2).html()+ "<br>";
+                }
+            });
+             output.html(str);
+       });
+      });
+  </script>
+
+<body>
+
+
+
+
+문제1. <br>
+학생정보 출력 버튼을 클릭시 테이블에 있는 학생 정보가 <br>
+fieldset 안에 출력되도록 만드시오! ($.each 사용) <br>
+<table border="1px">
+    <tr><th>이름</th><th>나이</th><th>주소</th></tr>
+    <tr><td>홍길동</td><td>20</td><td>서울시</td></tr>
+    <tr><td>김말똥</td><td>30</td><td>경기도</td></tr>
+    <tr><td>고길똥</td><td>40</td><td>강원도</td></tr>
+    <tr><td>김지똥</td><td>50</td><td>인천광역시</td></tr>  
+</table>
+
+<fieldset style="height:200px;width:500px;">
+    <legend>출력</legend>
+    <span id="span1"></span>
+</fieldset>
+
+<button id="btn">학생정보 출력</button>
+
+
+
+</body>
+
+</html>

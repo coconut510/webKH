@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      function checkBtn()
+      {
+          var select = $('input:checked');
+          for(var i = 0;i<select.length;i++)
+          {
+            console.log(select.eq(i).val()+"번");      
+          }
+      }
+  </script>
+  <style>
+      .next *{
+          display:block;
+          border:2px solid lightgrey;
+          color:black;
+          padding:5px;
+          margin:15px;
+      }
+  </style>
+</head>
+    <body>
+      <input type="checkbox" name="check" value="1"/>1번
+      <input type="checkbox" name="check" value="2"/>2번
+      <input type="checkbox" name="check" value="3"/>3번
+      <input type="checkbox" name="check" value="4"/>4번
+      <br>
+      <input type="button" value="체크 버튼 확인" onclick="checkBtn();">
+    </body>
+</html>

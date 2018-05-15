@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      var chk  = false;
+      $(document).ready(function(){
+          $('#btn').click(function(){
+                var pE = $('p');
+                if(chk) pE.removeClass(); 
+                else pE.addClass('dotbogi');
+                chk = !chk;
+          });
+      });
+  </script>
+    <style>
+        .dotbogi{
+            font-size:50px;
+            color:red;
+        }
+    </style>
+</head>
+    <body>
+        <p>안녕하세요 저는 글자입니다.</p>
+        <button id="btn">돋보기</button>
+    </body>
+</html>

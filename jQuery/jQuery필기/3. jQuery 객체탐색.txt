@@ -279,6 +279,191 @@ ex)
   </script>
 
 
+## next() ##
+-> 선택된 요소의 같은 레벨(형제)들 중 선택된 요소 다음의 한 개 요소를 리턴
+
+ex)
+ <script>
+      $(document).ready(function(){
+          var select = $('h2').next();
+          select.css('border','2px solid red')
+      })
+  </script>
+    <style>
+      .next *{
+          display:block;
+          border:2px solid lightgrey;
+          color:black;
+          padding:5px;
+          margin:15px;
+      }
+    </style>
+</head>
+    <body>
+       <div class="next">
+            <div>
+                div(parent)
+                <p>i'm p</p>
+                <span>i'm span</span>
+                <h2>i'm h2</h2>
+                <h3>i'm h3</h3>
+                <h4>i'm h4</h4>
+                <h5>i'm h5</h5>
+                <h6>i'm h6</h6>
+                <p>i'm p</p>
+            </div>
+         </div>
+    </body>
+</html>
+
+## nextAll() ##
+-> 선택된 요소의 같은 레벨(형제) 들중 선택된 요소 다음의 모든 요소를 리턴
+
+ <script>
+      $(document).ready(function(){
+          var select = $('h2').nextAll();
+          select.css('border','2px solid red')
+      })
+  </script>
+    <style>
+      .next *{
+          display:block;
+          border:2px solid lightgrey;
+          color:black;
+          padding:5px;
+          margin:15px;
+      }
+    </style>
+</head>
+    <body>
+       <div class="next">
+            <div>
+                div(parent)
+                <p>i'm p</p>
+                <span>i'm span</span>
+                <h2>i'm h2</h2>
+                <h3>i'm h3</h3>
+                <h4>i'm h4</h4>
+                <h5>i'm h5</h5>
+                <h6>i'm h6</h6>
+                <p>i'm p</p>
+            </div>
+         </div>
+    </body>
+</html>
+
+## nextUntil(인자) ##
+-> 선택된 요소부터 같은 레벨 (형제) 들 중 인자까지 범위의 모든 요소를 리턴( 범위지정)
+
+  <script>
+      $(document).ready(function(){
+          var select = $('h2').nextUntil('h6');
+          select.css('border','2px solid red')
+      })
+  </script>
+    <style>
+      .next *{
+          display:block;
+          border:2px solid lightgrey;
+          color:black;
+          padding:5px;
+          margin:15px;
+      }
+    </style>
+</head>
+    <body>
+       <div class="next">
+            <div>
+                div(parent)
+                <p>i'm p</p>
+                <span>i'm span</span>
+                <h2>i'm h2</h2>
+                <h3>i'm h3</h3>
+                <h4>i'm h4</h4>
+                <h5>i'm h5</h5>
+                <h6>i'm h6</h6>
+                <p>i'm p</p>
+            </div>
+         </div>
+    </body>
+</html>
+
+
+## prev() ##
+-> 선택된 요소의 같은 레벨(형제)들 중 선택된 요소 이전의 한 개 요소 리턴
+
+ex)
+
+  <script>
+      $(document).ready(function(){
+          var select = $('h2').prev();
+          select.css('border','2px solid red')
+      })
+  </script>
+
+
+## prevAll() ##
+-> 선택된 요소의 같은 레벨(형제)들 중 선택된 요소 이전의 모든 요소 리턴
+
+ <script>
+      $(document).ready(function(){
+          var select = $('h2').prevAll();
+          select.css('border','2px solid red')
+      })
+  </script>
+
+
+## prevUntil(인자) ##
+-> 선택된 요소의 같은 레벨(형제)들 중 선택된 요소 이전의 요소를 리턴(범위)
+
+
+ <script>
+      $(document).ready(function(){
+          var select = $('h4').prevUntil('p');
+          select.css('border','2px solid red')
+      })
+  </script>
+
+
+## is(인자) ##
+-> 선택된 요소의 범위내에 인자와 동일한 요소가 있는지 찾음!
+	(있으면 true, 없으면 false 리턴)
+
+ex)
+
+  <script>
+      $(document).ready(function(){
+          var select = $('h4').prevUntil('p');
+//          select.css('border','2px solid red')
+          var result = select.is('h2');
+          console.log(result);
+      })
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

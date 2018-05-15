@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+  <script>
+      function selectBtn()
+      {
+          var select = $('option:selected');
+          for(var i = 0;i<select.length;i++)
+          {
+            console.log(select.eq(i).html());      
+          }
+      }
+  </script>
+    <style>
+      .next *{
+          display:block;
+          border:2px solid lightgrey;
+          color:black;
+          padding:5px;
+          margin:15px;
+      }
+    </style>
+</head>
+    <body>
+     <select>
+         <option value="1" selected="selected">1번</option>
+         <option value="2">2번</option>
+         <option value="3">3번</option>
+     </select>
+     <br>
+     <input type="button" value="Select 버튼 확인" onclick="selectBtn();">
+    </body>
+</html>
