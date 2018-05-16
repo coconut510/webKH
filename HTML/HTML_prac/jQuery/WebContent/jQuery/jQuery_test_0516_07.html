@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+    <script>
+        $(document).ready(function(){
+           $('#btn1').click(function(){
+               $('img').animate({
+                   width:'400px',
+                   height:'300px',
+                   opacity:'0.4'
+               });
+           });
+           $('#btn2').click(function(){
+               $('img').animate({
+                   width:'200px',
+                   height:'150px',
+                   opacity:'1'
+               });
+           });
+        });
+  </script>
+  <style>
+      img{
+          width:200px;
+          height:150px;
+      }
+    </style>
+</head>
+    <body>
+      <img src="../sz05.jpg" alt="">
+       <button id="btn1">확대</button>
+       <button id="btn2">원본</button>
+    </body>
+</html>

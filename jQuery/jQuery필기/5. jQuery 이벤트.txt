@@ -1,0 +1,429 @@
+@ 이벤트
+-> 사용자가 마우스를 클릭하거나 마우스륽 움직여 특정 화면 위로 가져가거나
+키보드를 누르는 행위를 이벤트 라고 부름
+-> jQuery 는 event 객체를 통해서 이벤트를 제어할 수 있음
+
+* 다양한 이벤트 참조
+-> https://www.w3schools.com/jquery/jquery-ref-events.asp
+
+@이벤트 연결 방법
+
+$('선택자').method(function(event){});
+
+ex) hover 이벤트
+
+$('선택자').hover(infunction, outFunction);
+
+ex)  $(this) 를 쓰면 해당하는 태그 자체만 선택한다는 뜻임.
+
+    <script>
+      $(document).ready(function(){
+            $('h1').hover(function(){
+                $(this).removeClass();
+                $(this).addClass('hoverTest');
+            },function(){
+                 $(this).removeClass();
+                 $(this).addClass('outHoverTest');
+            });
+      });
+  </script>
+    <style>
+        .hoverTest{
+            background-color:black;
+            color : white;
+        }
+        .outHoverTest{
+            background-color:white;
+            color : black;
+        }
+    </style>
+</head>
+    <body>
+        <h1> Test1 </h1>
+        <h1> Test2 </h1>
+        <h1> Test3 </h1>
+    </body>
+</html>
+
+
+## trigger() ##
+-> 이벤트를 강제적으로 발생 시킴
+
+ex)
+<script>
+        $(document).ready(function(){
+            $('button:eq(0)').click(function(){
+                levelUp($('span:eq(0)'));
+            });
+            $('button:eq(1)').click(function(){
+                  levelUp($('span:eq(1)'));
+            });
+            $('button:eq(2)').click(function(){
+                 levelUp($('span:eq(2)'));
+            });
+            $('button:eq(3)').click(function(){
+                $('button:eq(0)').trigger('click');
+                $('button:eq(1)').trigger('click');
+                $('button:eq(2)').trigger('click');
+                $('span').each(function (index,item){
+//                    levelUp($(item)); 
+                    $(item).eq(index).trigger('click');
+                    console.log($(item).eq(index));
+                }); 
+            });
+        });
+        
+        function levelUp(El)
+        {
+             El.text(Number(El.text())+1);
+        }   
+  </script>
+    <style>
+        .hoverTest{
+            background-color:black;
+            color : white;
+        }
+    </style>
+</head>
+    <body>
+        <button>레벨업</button> 기사 : <span>0</span> Level<br>
+        <button>레벨업</button> 마법사 : <span>0</span> Level<br>
+        <button>레벨업</button> 궁수 : <span>0</span> Level<br>
+        <button>All</button>
+    </body>
+
+
+
+
+
+@ 기본 이벤트 제거, 이벤트 전달을 막는 메소드
+-> event.preventDefault()		기본 이벤트 제거
+-> event.stopPropagation()		이벤트 전달 제거
+
+
+## event.preventDefault() ##
+ex)
+
+<script>
+        $(document).ready(function(){
+            var switchValue = true;
+            $('button').click(function(){
+                if(switchValue) $(this).text('Off');
+                else $(this).text('On');
+                switchValue=!switchValue;
+            });
+            $('a').click(function(){
+                if(!switchValue)
+                {
+                    event.preventDefault();// 기본 이벤트 제거
+                    alert('On 상태에서 클릭해주세요!');
+                }
+            });
+        });
+  </script>
+    <style>
+        .hoverTest{
+            background-color:black;
+            color : white;
+        }
+    </style>
+</head>
+    <body>
+        <h1>
+            <a href="http://www.naver.com">네이버로 이동 </a>
+        </h1>
+        <button>On</button>
+    </body>
+</html>
+
+## event.stopPropagation() ##
+-> 이벤트 버블링을 막는 메소드
+-> 자식 요소에 넣으면 해당 요소의 이벤트까지만 발생시킴.
+
+<script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                alert("참 잘했어요!");
+                event.stopPropagation();// 이벤트 버블링 방지.
+        	return false;// 리턴 false를 줘도 버블링이 방지됨.
+            });
+            $("div").click(function(){
+               alert("전 div 의 이벤트입니다.");
+            });
+        });
+  </script>
+    <style>
+        div{
+            border : 1px solid black;
+            height:100px;
+            width:100px;
+        }
+    </style>
+</head>
+    <body>
+        <div>
+            <button>클릭</button>
+        </div>
+    </body>
+</html>
+
+## on() && off() 메소드 ##
+-> 이벤트를 연결 및 해제 하는 메소드
+
+ex)
+
+    <script>
+        $(document).ready(function(){
+            $('#btn2').click(function(){
+                $('#btn1').text('Click!!');
+                $('#btn1').on('click',function(){
+                    $('span').append('oh!!');
+                });
+            });
+            $('#btn3').click(function(){
+                $('#btn1').text('nothing');
+                $('#btn1').off('click')
+            });
+        });
+  </script>
+    <style>
+        div{
+            border : 1px solid black;
+            height:100px;
+            width:100px;
+        }
+    </style>
+</head>
+    <body>
+        <button id="btn1">nothing...</button>
+        <button id="btn2">click Event add</button>
+        <button id="btn3">click Event remove</button>
+        <span></span>
+    </body>
+</html>
+
+
+@ 마우스 이벤트
+
+## click ##
+-> 마우스 클릭 이벤트
+
+## dblclick ##
+-> 마우스 더블 클릭
+
+ex)
+
+<script>
+        $(document).ready(function(){
+            $('#click').click(function(){
+                $('#click').css('color','red'); 
+            });
+            $('#dblclick').dblclick(function(){
+                $('#dblclick').css('color','blue'); 
+            });
+        });
+  </script>
+
+
+## mousedown() && mouseup() ##
+-> mousedown : 마우스 버튼이 내려 갈때( 눌러질때)
+-> mouseup : 마우스 버튼이 올라갈때 (놓아질때)
+
+<script>
+        $(document).ready(function(){
+            $('div').mousedown(function(){
+                $('div').css('background-color','red'); 
+            });
+              $('div').mouseup(function(){
+                $('div').css('background-color','white'); 
+            });
+        });
+  </script>
+
+
+## mousemove() ##
+-> 마우스가 움직일때 발생하는 이벤트
+-> event.pageX		브라우저의 화면을 기준으로 마우스 X 좌표 위치
+-> event.pageY		브라우저의 화면을 기준으로 마우스 Y 좌표 위치
+
+ex)
+
+  <script>
+        $(document).ready(function(){
+            $('*').mousemove(function(x,y){
+                $('#xy').text(event.pageX+" "+ event.pageY);
+            });
+             
+        });
+  </script>
+
+
+@ 키보드 이벤트
+-> 키보드 버튼이 눌려지거나 떼어질때 발생하는 이벤트
+
+keydown		키보드가 눌러질때
+keypress	글자가 입력될때
+keyup		키보드가 떼어질때
+
+* keydown과 keypress는 아주 미세한 차이로 작동됨
+	- 글자를 입력하면 keydown이 먼저 작동되고, 
+	이후에 글자가 써지면 keypress가 작동 됨.
+
+-> 키보드 이벤트 실행 순서
+1. 사용자가 키보드를 누름
+2. keydown이벤트 발생
+3. 글자가 입력됨
+4. keypress 이벤트 발생
+5. 사용자가 키보드에서 손을 뗌(눌렀던 버튼에서 손을 뗌)
+6. keyup 이벤트 발생
+
+ex)
+
+ $(document).ready(function(){
+            var sp = $('span');
+            $('#test').keydown(function(){
+                sp.text("키보드가 눌러졌습니다.");
+            });
+             $('#test').keypress(function(){
+                sp.text("글시가 써졌습니다.");
+            });
+             $('#test').keyup(function(){
+                sp.text("키보드가 떼어졌습니다.");
+            });
+             
+        });
+
+@ 입력 양식 이벤트
+-> 입력하는 폼 양식에 발생하는 이벤트
+
+change		입력 양식의 내용을 변경할 때 발생
+focus		입력 양식에 처점을 맞추면 발생
+focusin		입력 양식에 초첨을 맞춰지기 바로 전에 발생
+focusout	입력 양식에 초점이 사라지기 바로 전에 발생
+blur		입력 양식에 초점이 사라지면 발생
+select		입력 양식을 선택할 때 발생
+submit		submit 버튼을 누르면 발생
+reset		reset 버튼을 누르면 발생
+
+
+## change ##
+ex)
+  <script>
+        $(document).ready(function(){
+            $('input:checkbox').change(function(){
+                console.log($(this).is(':checked'));
+            });
+        });
+  </script>
+
+
+
+ex)
+
+<script>
+        $(document).ready(function(){
+		//                $('#check_item>input:checkbox').change(function(){
+////                console.log($(this).is(':checked'));
+//                if(state) $(this).next().css('color','red');
+//                else $(this).next().css('color','black');
+//            });
+            $('#all').change(function(){
+                var object = $('#check_item').children('input');
+                var state = this.checked;
+                object.each(function(index,item){
+                   item.checked = state;
+                    if(state) $(item).next().css('color','red');
+                    else $(item).next().css('color','black');
+                });
+            });
+            
+            $('#check_item').children().change(function(){
+                if(this.checked) $(this).next().css('color','red');
+                else $(this).next().css('color','black');
+            });
+        });
+  </script>
+
+
+## focusin && focusout ##
+-> 해당 요소에 포커스를 받았을대, 포커스가 해제 되었을때
+-> focus의 확장 버전임
+
+ex) $('선택자').focusin(function(){});
+ex) $('선택자').focusout(function(){});0
+
+ex)
+
+<script>
+        $(document).ready(function(){
+            $('input').focusin(function(){
+                switch($(this).attr('id'))
+                {
+                    case 'id':
+                        $(this).next().html('영어+숫자만 입력');
+                        break;
+                    case 'pwd':  $(this).next().html('영어+숫자+특수문자 입력');
+                        break;
+                    case 'name':  $(this).next().html('한글만 입력');
+                        break;
+                }
+            });
+            $('input').focusout(function(){
+                $(this).next().html('');
+            });
+        });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

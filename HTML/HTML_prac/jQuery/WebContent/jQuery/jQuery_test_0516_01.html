@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+    <script>
+        $(document).ready(function(){
+            var totalLen = 151;
+            var curLen = 0;
+            var ta = $('textarea');
+            var h = $('h1');
+
+             $('#tArea').keydown(function(){
+                 curLen = ta.val().length;
+                 h.text("작성 가능한 글자수 : " + (totalLen-curLen));
+            });
+
+        });
+  </script>
+    <style>
+        div{
+            border : 5px solid black;
+            height:100px;
+            width:100px;
+        }
+    </style>
+</head>
+    <body>
+        <h4>글 작성</h4>
+        <h1>작성 가능한 글자수 : 150</h1>
+        <textarea id="tArea" style="width:300px; height:70px; overflow:auto;" maxlength="150"></textarea>
+    </body>
+</html>

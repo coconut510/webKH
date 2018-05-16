@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+    <script>
+        $(document).ready(function(){
+            $('input').focusin(function(){
+                switch($(this).attr('id'))
+                {
+                    case 'id':
+                        $(this).next().html('영어+숫자만 입력');
+                        break;
+                    case 'pwd':  $(this).next().html('영어+숫자+특수문자 입력');
+                        break;
+                    case 'name':  $(this).next().html('한글만 입력');
+                        break;
+                }
+            });
+            $('input').focusout(function(){
+                $(this).next().html('');
+            });
+        });
+  </script>
+    <style>
+    </style>
+</head>
+    <body>
+       <center>
+       <label>회원가입</label><br>
+       
+       ID: <input type="text" id="id"><label></label><br>
+       PW: <input type="password" id="pwd"><label></label><br>
+       NAME: <input type="text" id="name"><label></label><br>
+        </center>
+    </body>
+</html>
