@@ -1,0 +1,29 @@
+@ jQuery Ajax
+-> Ajax 통신을 jQuery 로 작성하게 되면 훨씬 간단하게 구현할 수 있음
+-> 또흔 jQuery 로 Ajax르 작성하게 되면 크로스브라우징의 문제를 해결 해줌
+	* 크로스브라우징 : 다양한 브라우저들이 같은 화면을 동일하게 보여주는 것
+-> jQuery Ajax에서 가장 주용한 API 는 "$.ajax" 임
+
+$.ajax 의 기본 문법
+-> jQuery.ajax([setting]);
+혹은
+-> $.ajax([settings]);
+
+ex)
+
+$.ajax(
+	설정 값1,
+	설정 값2,
+	설정 값3,
+	설정 값4,/..
+);
+
+주요 속성
+
+url : 데이터를 전송할 URL
+data : 서버에 전송할 데이터, key/value 형식의 객체
+dataType : 서버가 리턴하는 데이터 타입(xml, json, script, html)
+type : 서버로 전송하는 메소드의 타입(POST, GET)
+success : ajax 통신에 성공했을 때 호출된 이벤트 핸들러
+error : ajax 통신에 실패했을 때 호출될 이벤트 핸들러
+complte : ajax 통신 시 무조건 호출될 이벤트 핸들러

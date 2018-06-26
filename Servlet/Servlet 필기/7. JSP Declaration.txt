@@ -1,0 +1,130 @@
+@ Declaration Tag (선언문 태그)
+-> Servlet 클래스의 멤버변수/메소드에 해당하는 코드를 작성할 때 사용
+
+멤버변수 선언
+
+<%! int data = 100 %>
+
+멤버 메소드 선언
+
+<%!
+	public void dataPrint()
+	{
+		System.out.println(data);
+	} 
+%>
+
+
+<% 
+		int a = 999;// _jspService 메소드의 지역변수 
+	%>
+	<%!
+		int data = 999; // 해당 jsp 클래스의 전역변수 (멤버변수))
+	%>
+	<%
+		System.out.println(data);
+	%>
+	<%! 
+		public void dataPrint()
+		{
+			System.out.println(data);
+		}
+	%>		
+
+
+@ Scriptlet Tag
+-> _jspService 메소드의 로컬변수와 코드를 작성할 때 사용
+
+전역변수는 Declaration Tag( 선언문 태그) 를 이용하여 만들고
+지역변수는 Scriptlet Tag 안에서 만들면 됨
+
+
+<% int data = 999; %> // _jspService 메소드의 지역 변수가 됨
+
+
+@ Expression tag
+-> Servlet 코드에서 out.print()의 역할을 수행
+-> 표현태그에서는 ';' 을 붙이지 않음
+
+ex) 시간을 출력하고 싶다면?
+
+<%= new java.util.Date() %> 을 Servlet으로 변환시 out.print(new java.util.Date());
+
+만약 세미 콜론을 붙이게 되면
+
+<%= new java.util.Date(); %> 을 Servlet으로 변환시 out.print(new java.util.Date(););
+가 되므로 에러가 발생함.
+
+
+Servlet -> session 객체
+request.getSession(); -> 서블릿에서 사용하는 코드
+
+jsp 에서는 해당 jsp 페이지를 로딩하게 되면 자동으로 session 객체가 사용됨
+getSession(); 해당 코드가 자동으로 되어 있음
+
+Session 발급 자체는 톰캣이 진행함
+-> Servlet 이든, jsp이든 서버쪽으로 접속하게 되면 톰캣이 모조건 생성함
+-> 단, 생성한것을 가져다 쓰는것은 개발자가 코딩할 수 있음
+	- Servlet은 request.getSession()을 통해 사용함
+	- jsp는 session 이라는 내장객체를 생성하여 자동으로 가져옴
+
+
+* 정리하면
+Servlet은 request.getSession()을 해야만 하고,
+jsp는 request.getSession()을 하지 않아도 됨( 해도 의미가 없음)
+
+Servlet에서 로그인한 사용자 인지 아닌지를 구분하는 코드
+
+HttpSession session = request.getSession(false);
+
+if(session != null)
+{
+	로그인 사용자
+}else{
+	비로그인 사용자
+}
+
+
+jsp에서 로그인한 사용자 인지 아닌지를 구분하는 코드
+
+if(session.getAttribute("key값")!=null){
+	로그인 사용자
+}else{
+	비로그인 사용자
+}
+
+* jsp 에서 request.getSession(false)로는 안되는 이요?
+	-> 무조건 자동으로 session을 가져오기 때문에(비 로그인 포함)
+	false 인자값을 사용하여도 null이 리턴되는 경우가 없기 때문임!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+@ 파일 업로드
+-> 파일 업로드는 말 그대로 파일을 업로드 하기 위한 로직
+-> 파일을 업로드 하려면 공개된 외부 라이브러리를 사용 해야함
+-> 자바 웹에서 파일을 업로드 할때 COS 라이브러리를 가장 많이 사용함
+
+* COS : http://www.servlets.com/cos/
+
+## 기본적인 file 업로드 태그 ##
+<form method="post" enctype="multipart/form-data">
+	<input type="file" name="file">
+</form>
+
+파일의 데이터는 일반적인 String 형태가 아닌 Binary 형태이기 때문에
+enctype(인코딩 타입) 을 multipart/form-data 형태로 바꾸어 주어야 함
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
